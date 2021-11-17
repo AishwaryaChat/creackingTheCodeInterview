@@ -8,7 +8,7 @@ const isUnique = (str) => {
   }
   return true;
 };
-// cocmplexity : O(S), where S is length of string
+// Complexity : O(S), where S is length of string
 
 const isUniqueInPlace = (str) => {
   if (str.length > 128) return false;
