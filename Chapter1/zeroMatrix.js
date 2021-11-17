@@ -56,3 +56,50 @@ printMatrix(matrix);
 const zeroedMatrix = zeroMatrix(matrix);
 console.log("Zeroed Matrix is: ");
 printMatrix(zeroedMatrix);
+
+const zeroMatrixInPlace = (matrix) => {
+  let firstRowHasZero = false;
+  let firstColHasZero = false;
+  for (let j = 0; j < matrix[0].length; j++) {
+    if (matrix[0][j] === 0) firstRowHasZero = true;
+  }
+
+  for (let i = 0; i < matrix[0].length; i++) {
+    if (matrix[i][0] === 0) firstColHasZero = true;
+  }
+
+  for (let i = 1; i < matrix.length; i++) {
+    for (let j = 1; j < matrix[0].length - 1; j++) {
+      if (matrix[i][j] === 0) {
+        matrix[i][0] = true;
+        matrix[0][j] = true;
+      }
+    }
+  }
+  for (let i = 0; i < matrix.length; i++) {
+    if (matrix[i][0] === true) nullifyRow(matrix, i);
+  }
+  for (let j = 0; j < matrix[0].length; j++) {
+    if (matrix[0][j] === true) nullifyColumn(matrix, j);
+  }
+  if (firstRowHasZero) nullifyRow(matrix, 0);
+  if (firstColHasZero) nullifyColumn(matrix, 0);
+  return matrix;
+};
+
+// Time Complexity: O(N*M)
+// Space Complexity: O(1)
+
+const matrix1 = [
+  [0, 2, 3, 0],
+  [5, 6, 7, 8],
+  [9, 10, 0, 12],
+  [13, 14, 15, 16],
+];
+
+console.log("matrix1 is: ");
+printMatrix(matrix1);
+
+const zeroedMatrix1 = zeroMatrixInPlace(matrix1);
+console.log("Zeroed Matrix using zeroMatrixInPlace is: ");
+printMatrix(zeroedMatrix1);
