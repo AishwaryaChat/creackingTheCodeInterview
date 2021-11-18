@@ -106,7 +106,7 @@ class LinkedList {
       current = current.next;
       count++;
     }
-    return current.data;
+    return current;
   }
 
   length() {
