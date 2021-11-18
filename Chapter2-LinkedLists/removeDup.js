@@ -18,9 +18,28 @@ class LinkedListNew extends LinkedList {
       current = current.next;
     }
   }
+  // Complexity of above solution: O(N), where N is the number of nodes in the Linked List
+
+  // How would you solve this problem if a buffer is not allowed
+  // runners approach
+  removeDuplicatesInPlace = () => {
+    let current = this.head;
+    while (current !== null) {
+      let runner = current;
+      while (runner.next !== null) {
+        if (runner.next.data === current.data) {
+          runner.next = runner.next.next;
+        } else {
+          runner = runner.next;
+        }
+      }
+      current = current.next;
+    }
+  };
 }
 
-// Complexity: O(N), where N is the number of nodes in the Linked List
+// Complexity of above solution: Space complexity is O(1),
+// but time complexity is O(N^2), where N is the number of nodes in the Linked List
 
 let ll = new LinkedListNew();
 ll.insertAtBeginning(100);
@@ -38,6 +57,7 @@ ll.insertAtEnd("ABCD");
 
 console.log("before removing duplicates: ");
 ll.printList();
-ll.removeDuplicates();
+// ll.removeDuplicates();
+ll.removeDuplicatesInPlace();
 console.log("New LL: ");
 ll.printList();
