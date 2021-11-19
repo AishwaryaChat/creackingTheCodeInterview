@@ -15,6 +15,10 @@ class LinkedList {
     return this.head;
   }
 
+  setHead(node) {
+    this.head = node;
+  }
+
   insertAtBeginning(data) {
     const node = new Node(data);
     node.next = this.head;
