@@ -1,4 +1,4 @@
-const LinkedList = require("./singlyLinkedListImplementation");
+const { LinkedList } = require("./singlyLinkedListImplementation");
 
 // Remove duplicates from an unsorted linked
 class LinkedListNew extends LinkedList {

@@ -1,4 +1,4 @@
-const LinkedList = require("./singlyLinkedListImplementation");
+const { LinkedList } = require("./singlyLinkedListImplementation");
 
 // Reverse a given linked list
 

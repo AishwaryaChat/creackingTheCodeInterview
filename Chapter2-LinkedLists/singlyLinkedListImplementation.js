@@ -136,7 +136,10 @@ class LinkedList {
   }
 }
 
-module.exports = LinkedList;
+module.exports = {
+  LinkedList,
+  Node,
+};
 
 const ll = new LinkedList();
 // ll.insertAtBeginning(100);

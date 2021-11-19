@@ -1,4 +1,4 @@
-const LinkedList = require("./singlyLinkedListImplementation");
+const { LinkedList } = require("./singlyLinkedListImplementation");
 
 //write code to partition a linked list around a piviot element x,
 // such that all nodes less than x comes before all nodes greater than or equal to x

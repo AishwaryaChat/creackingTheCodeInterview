@@ -1,4 +1,4 @@
-const LinkedList = require("./singlyLinkedListImplementation");
+const { LinkedList } = require("./singlyLinkedListImplementation");
 
 // Find if the elements in the linked list make a pallindrome or not
 const isPalindrome = (head) => {

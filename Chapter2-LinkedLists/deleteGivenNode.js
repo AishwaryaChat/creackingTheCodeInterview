@@ -3,7 +3,7 @@
 // not necessarily the exact middle) of a singly linked list,
 // given only access to that node which needs to be deleted
 
-const LinkedList = require("./singlyLinkedListImplementation");
+const { LinkedList } = require("./singlyLinkedListImplementation");
 
 const deleteGivenNode = (node) => {
   if (node === null || node.next === null) return false;
