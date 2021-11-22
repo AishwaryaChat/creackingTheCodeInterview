@@ -44,12 +44,14 @@ class Stack {
   }
 }
 
-const stack = new Stack();
-stack.push(100);
-stack.push(200);
-stack.push(300);
-stack.print();
-stack.pop();
-console.log(`Peek element is: ${stack.peek()}`);
-console.log(`Size of stack is: ${stack.size()}`);
-stack.clear();
+module.export = Stack;
+
+// const stack = new Stack();
+// stack.push(100);
+// stack.push(200);
+// stack.push(300);
+// stack.print();
+// stack.pop();
+// console.log(`Peek element is: ${stack.peek()}`);
+// console.log(`Size of stack is: ${stack.size()}`);
+// stack.clear();
