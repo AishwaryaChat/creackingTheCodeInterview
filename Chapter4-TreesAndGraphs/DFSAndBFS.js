@@ -30,6 +30,24 @@ class Graph {
     }
     console.log("visited", visited);
   }
+
+  BFS(startingNode, func = console.log) {
+    const nodeQueue = [];
+    const visited = {};
+    nodeQueue.push(startingNode);
+    visited[startingNode] = true;
+    while (nodeQueue.length) {
+      const current = nodeQueue.shift();
+      const neighbours = this.adjList[current];
+      func(current);
+      neighbours.forEach((neighbour) => {
+        if (!visited[neighbour]) {
+          nodeQueue.push(neighbour);
+          visited[neighbour] = visited;
+        }
+      });
+    }
+  }
 }
 
 const graph = new Graph();
@@ -43,5 +61,6 @@ graph.addNeighbours(2, [1, 5, 3, 4]);
 graph.addNeighbours(3, [2, 4]);
 graph.addNeighbours(4, [2, 5, 3]);
 graph.addNeighbours(5, [4, 1, 2]);
-console.log(graph);
-graph.DFS(1);
+// console.log(graph);
+// graph.DFS(1);
+graph.BFS(1);
