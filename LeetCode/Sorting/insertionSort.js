@@ -19,6 +19,9 @@ for(let i=1; i<arr.length; i++) {
     for(let j=i-1; j>=0; j--) {
         if(temp < arr[j]) {
             [arr[j+1], arr[j]] = [arr[j], arr[j+1]]
+        } else {
+            // this means element is already placed at it's correct position
+            break
         }
     }
 }
