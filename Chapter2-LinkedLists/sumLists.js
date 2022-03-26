@@ -10,47 +10,42 @@ const addition = (l1, l2) => {
   const finalSum = new LinkedList();
   let carry = 0;
   let rem = 0;
-  while (l1Head !== null || l2Head !== null) {
+  while (l1Head !== null || l2Head !== null || carry>0) {
     let sum = carry;
     carry = 0;
     if (l1Head !== null) {
       sum += l1Head.data;
-    }
-    if (l2Head !== null) {
-      sum += l2Head.data;
-    }
-
-    if (sum > 9) {
-      carry = Math.floor(sum / 10);
-      rem = sum % 10;
-      finalSum.insertAtBeginning(rem);
-    } else {
-      finalSum.insertAtBeginning(sum);
-    }
-    if (l1Head !== null) {
       l1Head = l1Head.next;
     }
     if (l2Head !== null) {
+      sum += l2Head.data;
       l2Head = l2Head.next;
     }
+
+    if (sum > 9) {
+      carry = 1;
+      sum = sum % 10;
+    }
+    finalSum.insertAtBeginning(sum);
+    
   }
-  return finalSum;
+  return finalSum.reverse();
 };
 
 const l1 = new LinkedList();
 l1.insertAtBeginning(6);
-l1.insertAtBeginning(1);
-l1.insertAtBeginning(7);
-l1.insertAtBeginning(7);
+l1.insertAtBeginning(5);
+// l1.insertAtBeginning(7);
+// l1.insertAtBeginning(7);
 console.log("l1: ");
 l1.printList();
 const l2 = new LinkedList();
-l2.insertAtBeginning(2);
 l2.insertAtBeginning(9);
+l2.insertAtBeginning(4);
 l2.insertAtBeginning(5);
 console.log("l2: ");
 l2.printList();
 
 const finalLL = addition(l1, l2);
-console.log("final sum: ");
+console.log("final sum: ", finalLL);
 finalLL.printList();
