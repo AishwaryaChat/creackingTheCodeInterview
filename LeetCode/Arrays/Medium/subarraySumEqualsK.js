@@ -32,16 +32,11 @@ Constraints:
     var map = {0:1}
     for(let i=0; i<nums.length; i++){
         sum += nums[i]
-        console.log("nums[i]", nums[i])
-        console.log("map before", map)
-        console.log("sum", sum)
-        console.log("sum-k", sum-k)
         if(map[sum-k] !== undefined){
             count += map[sum-k]
         }
         let val = map[sum] !== undefined ? map[sum]  : 0
         map[sum] = val+1
-        console.log("map after", map)
     }
     return count
 };
