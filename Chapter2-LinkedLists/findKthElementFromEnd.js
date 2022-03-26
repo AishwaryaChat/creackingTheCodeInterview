@@ -21,6 +21,8 @@ class LinkedListNew extends LinkedList {
         if (runner.next.next == null) count2 += 1;
       }
     }
+    console.log("count1", count1)
+    console.log("count2", count2)
     while (count1 <= count2 - k) {
       current = current.next;
       count1++;
@@ -33,14 +35,24 @@ class LinkedListNew extends LinkedList {
   searchKthElementFromEndAnother(k) {
     let current = this.head;
     let runner = this.head;
+    let previous = this.head
+    let flag = true
     for (let i = 0; i < k; i++) {
-      if (runner.next === null) return null;
+      if (runner.next === null) {
+        flag = false
+        break
+      };
       runner = runner.next;
     }
-    while (runner !== null) {
-      runner = runner.next;
-      current = current.next;
+    if(flag) {
+
+      while (runner !== null) {
+        runner = runner.next;
+        previous = current
+        current = current.next;
+      }
     }
+    console.log("current", current)
     return current;
   }
   //   Above solution is more simpler, but have same complexity O(N)
@@ -49,10 +61,10 @@ class LinkedListNew extends LinkedList {
 let ll = new LinkedListNew();
 ll.insertAtBeginning(100);
 ll.insertAtBeginning(200);
-ll.insertAtBeginning(300);
-ll.insertAtBeginning(400);
-ll.insertAtBeginning(500);
-ll.insertAtBeginning(600);
+// ll.insertAtBeginning(300);
+// ll.insertAtBeginning(400);
+// ll.insertAtBeginning(500);
+// ll.insertAtBeginning(600);
 ll.printList();
-const foundNode = ll.searchKthElementFromEndAnother(3);
+const foundNode = ll.searchKthElementFromEndAnother(2);
 console.log("Found Node: ", foundNode);
