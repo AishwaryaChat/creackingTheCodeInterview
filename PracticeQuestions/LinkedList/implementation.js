@@ -140,25 +140,33 @@ class LinkedList {
       }
       process.stdout.write("\n");
   }
+  getHead() {
+      return this.head
+  }
   }
 
 
 
-let LL = new LinkedList()
-LL.insert_node(1, 2)
-LL.insert_node(1, 3)
-LL.insert_node(2, 4)
-LL.insert_node(2, 5)
-console.log("printing")
-LL.print_ll()
-LL.delete_node(2)
-console.log("printing")
-LL.print_ll()
-LL.delete_node(2)
-console.log("printing")
-LL.print_ll()
-LL.delete_node(4)
-console.log("printing")
-LL.print_ll()
+// let LL = new LinkedList()
+// LL.insert_node(1, 2)
+// LL.insert_node(1, 3)
+// LL.insert_node(2, 4)
+// LL.insert_node(2, 5)
+// console.log("printing")
+// LL.print_ll()
+// LL.delete_node(2)
+// console.log("printing")
+// LL.print_ll()
+// LL.delete_node(2)
+// console.log("printing")
+// LL.print_ll()
+// LL.delete_node(4)
+// console.log("printing")
+// LL.print_ll()
+
+module.exports = {
+    LinkedList
+}
+
 
 
