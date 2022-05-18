@@ -64,6 +64,9 @@ Explanation 2:
 
 */
 
+// TC = O(N)
+// SC = O(1)
+
 const { LinkedList } = require("./implementation");
 
 const reverseLinkedList = (head, B, C) => {
@@ -154,3 +157,37 @@ LL2.print_ll();
 const reverse2 = reverseLinkedList(LL2.getHead(), 1, 7);
 console.log("printing reverse");
 printLL(reverse2);
+
+// Lengthy solution
+
+const reverse = (head, B, C) => {
+  let x = head;
+  let i = 1;
+  while (i <= B - 1) {
+      x = x.next;
+      i++;
+    }
+    let prev = head;
+  console.log("x", x)
+  let current = x;
+  let previous = null;
+  let next = x;
+  while (i <= C) {
+    next = current.next;
+    current.next = previous;
+    previous = current;
+    current = next;
+    i++;
+  }
+  let y = previous;
+  while (y.next !== null) {
+    y = y.next;
+  }
+  let z = head
+  while(z.next !== null) {
+      z=z.next
+  }
+    z.next = previous;
+    y.next = current;
+  return head;
+}
