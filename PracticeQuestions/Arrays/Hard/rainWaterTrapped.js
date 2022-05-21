@@ -1,10 +1,6 @@
 /*
 Rain Water Trapped
-Solved
-character backgroundcharacter
-Stuck somewhere?
-Ask for help from a TA & get it resolved
-Get help from TA
+
 Problem Description
 
 Given a vector A of non-negative integers representing an elevation map where the width of each bar is 1, compute how much water it is able to trap after raining.
@@ -58,6 +54,8 @@ Explanation 2:
 
 No water is trapped.
 */
+// TC = O(N)
+// SC = O(N)
 const trap = (A) => {
   let rMax = [];
   let n = A.length;
@@ -74,6 +72,7 @@ const trap = (A) => {
   return area;
 };
 
-const A = [6, 3, 2, 4, 1, 3, 5, 3, 4];
+// const A = [6, 3, 2, 4, 1, 3, 5, 3, 4];
+const A = [ 0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1 ]
 
 console.log("Area ", trap(A));
