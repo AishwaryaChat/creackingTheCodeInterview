@@ -145,6 +145,19 @@ class LinkedList {
   }
   }
 
+  function printLL(LL) {
+    let temp = LL;
+    let flag = 0;
+    while (temp != null) {
+      if (flag == 0) {
+        process.stdout.write(temp.data.toString());
+        flag = 1;
+      } else process.stdout.write(" " + temp.data.toString());
+      temp = temp.next;
+    }
+    process.stdout.write("\n");
+  }
+
 
 
 // let LL = new LinkedList()
@@ -165,7 +178,8 @@ class LinkedList {
 // LL.print_ll()
 
 module.exports = {
-    LinkedList
+    LinkedList,
+    printLL
 }
 
 
