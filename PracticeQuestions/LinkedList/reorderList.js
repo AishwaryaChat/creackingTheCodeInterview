@@ -70,7 +70,6 @@ function printLL(LL) {
       flag = 1;
     } else {
       process.stdout.write(" " + temp.data.toString());
-      // if(temp.data == 6) break
     }
     temp = temp.next;
   }
