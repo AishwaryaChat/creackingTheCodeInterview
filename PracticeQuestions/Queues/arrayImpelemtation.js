@@ -42,7 +42,6 @@ class Queue {
   }
 
   frontElement() {
-      console.log("this.front", this.front)
       return this.queue[this.front]
   }
 }
