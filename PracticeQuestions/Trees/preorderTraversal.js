@@ -25,7 +25,7 @@ const N1RightLeft = new TreeNode(3);
 N1Right.left = N1RightLeft;
 N1.right = N1Right
 
-console.log(solve(N1))
+// console.log(solve(N1))
 
 function iterativePreOrder(root) {
     let ans = []
@@ -43,5 +43,7 @@ function iterativePreOrder(root) {
     }
     return ans
 }
-console.log("iterative", iterativePreOrder(N1))
+// console.log("iterative", iterativePreOrder(N1))
+
+module.exports = iterativePreOrder
 

@@ -90,7 +90,7 @@ const N1RightLeft = new TreeNode(3);
 N1Right.left = N1RightLeft;
 N1.right = N1Right
 
-console.log(solve(N1))
+// console.log(solve(N1))
 
 // Recursive solution using stacks
 // TC = O(N)
@@ -111,4 +111,6 @@ function inorderIterative(root) {
     }
     return ans
 }
-console.log("iterative", inorderIterative(N1))
+// console.log("iterative", inorderIterative(N1))
+
+module.exports = inorderIterative
