@@ -44,6 +44,11 @@ class Queue {
   frontElement() {
       return this.queue[this.front]
   }
+
+  getQueue() {
+    return this.queue
+  }
+
 }
 
 module.exports = Queue;
