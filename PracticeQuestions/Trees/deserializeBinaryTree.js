@@ -108,8 +108,10 @@ function solve(A) {
   return root
 }
 
-const A = [1, 2, 3, 4, 5, -1, 6, 7, 8, -1, 9, -1, -1];
+// const A = [1, 2, 3, 4, 5, -1, 6, 7, 8, -1, 9, -1, -1];
 
-const root = solve(A)
-console.log("root", root)
-console.log(preOrder(root));
+// const root = solve(A)
+// console.log("root", root)
+// console.log(preOrder(root));
+
+module.exports = solve

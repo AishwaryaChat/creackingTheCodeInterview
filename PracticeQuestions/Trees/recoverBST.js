@@ -78,30 +78,29 @@ which is a valid BST
 const inorder = require("./morrisInorderTraversal");
 
 class TreeNode {
-    constructor(data, left = null, right = null) {
-      this.data = data;
-      this.left = left;
-      this.right = right;
-    }
+  constructor(data, left = null, right = null) {
+    this.data = data;
+    this.left = left;
+    this.right = right;
   }
+}
 
 function solve(root) {
-  let left,right
+  let left, right;
   let inOrd = inorder(root);
   for (let i = 0; i < inOrd.length - 1; i++) {
     if (inOrd[i] > inOrd[i + 1]) {
-        if(left === undefined) {
-            left = inOrd[i]
-        }
-        right = inOrd[i + 1]
+      if (left === undefined) {
+        left = inOrd[i];
+      }
+      right = inOrd[i + 1];
     }
   }
-  return [left, right]
+  return [left, right];
 }
 
+const N3 = new TreeNode(3);
+const N2 = new TreeNode(2);
+const N1 = new TreeNode(1, N2, N3);
 
-const N3 = new TreeNode(3)
-const N2 = new TreeNode(2)
-const N1 = new TreeNode(1, N2, N3)
-
-console.log(solve(N1))
+console.log(solve(N1));
