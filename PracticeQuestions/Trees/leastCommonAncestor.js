@@ -1,10 +1,6 @@
 /*
 Least Common Ancestor
-Unsolved
-character backgroundcharacter
-Stuck somewhere?
-Ask for help from a TA and get it resolved.
-Get help from TA.
+
 Problem Description
 Find the lowest common ancestor in an unordered binary tree A, given two values, B and C, in the tree.
 
@@ -73,6 +69,9 @@ Explanation 2:
 
 //  Since input is an unordered binary tree, The Idea here is to get the in and out time of each node using preorder(for intime) and postorder(for outtime) traversal
 // This will convert the binary tree to a BST and then we can traverse and keep checking if the current node is ancestor of both then move that side
+
+// TC = O(H)
+// SC = O(N) - for intime and out time
 
 const calculateInTimeOutTimeMap = require("./LCAInTimeOutTimeConcept");
 const getTreeFromLevelOrder = require("./deserializeBinaryTree");
