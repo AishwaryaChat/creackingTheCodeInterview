@@ -2,6 +2,7 @@ class Node {
   constructor(maxLength = 26) {
     this.isEnd = false;
     this.next = new Array(maxLength).fill(null);
+    this.count = 0
   }
 }
 
@@ -11,6 +12,7 @@ function insert(root, s) {
     const charCode = s[i].charCodeAt(0) - 97;
     if (curr.next[charCode] === null) curr.next[charCode] = new Node();
     curr = curr.next[charCode];
+    curr.count += 1 
   }
   curr.isEnd = true;
   return root
@@ -29,4 +31,5 @@ function search(root, s) {
 module.exports = {
   search,
   insert,
+  Node
 };
