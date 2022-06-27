@@ -75,21 +75,22 @@ Explanation 2:
 // Then until the heap has length more than 1, we will keep deleting the root of the heap since it is the smallest element
 // Like this we will get First 2 minimum elements, add them and put this result back in the heap in its correct position
 
-const { insert, deleteMin } = require("../minheapImplementation");
+const { Heap } = require("../minheapImplementation");
 
 function solve(A) {
-  let heap = [];
+  let heap = new Heap();
   for (let i = 0; i < A.length; i++) {
-    heap = insert(heap, A[i]);
+    heap.push(A[i]);
   }
   let ans = 0;
-  while (heap.length>1) {
-    let a = heap[0];
-    heap = deleteMin(heap);
-    let b = heap[0];
-    heap = deleteMin(heap);
+  while (heap.size()>1) {
+    let a = heap.peek();
+    console.log(a)
+    heap.pop();
+    let b = heap.peek();
+    heap.pop();
     let res = a && b ? a + b : a;
-    heap = insert(heap, res);
+    heap.push(res);
     ans += res;
     if (b === undefined) break;
   }
