@@ -1,56 +1,77 @@
-function insert(heap, data) {
-  if (heap.length === 0) {
-    heap.push(data);
-    return heap;
+class Heap {
+  constructor() {
+    this._heap = [];
   }
-  heap.push(data);
-  let index = heap.length - 1;
-  let parentIndex = Math.floor((index - 1) / 2);
-  let parent = heap[parentIndex];
-  while (data < parent) {
-    [heap[index], heap[parentIndex]] = [heap[parentIndex], heap[index]];
-    index = parentIndex;
-    parentIndex = Math.floor((index - 1) / 2);
-    parent = heap[parentIndex];
+  size() {
+    return this._heap.length
   }
-  return heap;
-}
-
-function deleteMin(heap) {
-  if (heap.length === 0) return heap;
-  let n = heap.length;
-  heap[0] = heap[n - 1];
-  heap.pop();
-  let i = 0;
-  let LC = 2 * i + 1;
-  let RC = 2 * i + 2;
-  while (heap[LC] || heap[RC]) {
-    let ele = heap[i];
-    if (heap[LC] && heap[LC] <= ele && (heap[RC] === undefined || heap[LC] <= heap[RC])) {
-      [heap[i], heap[LC]] = [heap[LC], heap[i]];
-      i = LC;
-    } else if (
-        heap[RC] &&
-      heap[RC] <= ele &&
-      (heap[LC] === undefined || heap[RC] <= heap[LC])
-    ) {
-      [heap[i], heap[RC]] = [heap[RC], heap[i]];
-      i = RC;
-    } else {
-      break;
+  peek() {
+    return this._heap[0];
+  }
+  push(data) {
+    this._heap.push(data);
+    let index = this._heap.length - 1;
+    let parentIndex = Math.floor((index - 1) / 2);
+    let parent = this._heap[parentIndex];
+    while (data < parent) {
+      let temp = this._heap[index];
+      this._heap[index] = this._heap[parentIndex];
+      this._heap[parentIndex] = temp;
+      index = parentIndex;
+      parentIndex = Math.floor((index - 1) / 2);
+      parent = this._heap[parentIndex];
     }
-    LC = 2 * i + 1;
-    RC = 2 * i + 2;
   }
-  return heap;
+  pop() {
+    if (this._heap.length === 0) return 
+    let n = this.size();
+    let popped = this._heap[0];
+    this._heap[0] = this._heap[n - 1];
+    this._heap.pop();
+    let i = 0;
+    let LC = 2 * i + 1;
+    let RC = 2 * i + 2;
+    while (true) {
+      let ele = this._heap[i];
+      if (
+        this._heap[LC] <= ele &&
+        (this._heap[RC] === undefined || this._heap[LC] <= this._heap[RC])
+      ) {
+        let temp = this._heap[i];
+        this._heap[i] = this._heap[LC];
+        this._heap[LC] = temp;
+        i = LC;
+      } else if (
+        this._heap[RC] !== undefined &&
+        this._heap[RC] <= ele &&
+        this._heap[RC] <= this._heap[LC]
+      ) {
+        let temp = this._heap[i];
+        this._heap[i] = this._heap[RC];
+        this._heap[RC] = temp;
+        i = RC;
+      } else {
+        break;
+      }
+      LC = 2 * i + 1;
+      RC = 2 * i + 2;
+    }
+    return popped;
+  }
 }
 
-// let heap = insert([], 3);
-// heap = insert(heap, 5);
-// heap = insert(heap, 10);
-// heap = insert(heap, 12);
-// heap = insert(heap, 8);
-// heap = insert(heap, 7);
-// console.log(heap)
+// let heap = [];
+// heap = insert(heap, 1);
+// heap = insert(heap, -1);
+// heap = insert(heap, -2);
+// console.log("heap", heap);
+// heap = insert(heap, -3);
+// console.log("heap", heap);
+// heap = deleteMin(heap);
+// heap = deleteMin(heap);
+// heap = insert(heap, 4);
+// heap = insert(heap, 2);
+// heap = deleteMin(heap);
+// console.log("heap", heap);
 
-module.exports = { insert, deleteMin };
+module.exports = { Heap };
