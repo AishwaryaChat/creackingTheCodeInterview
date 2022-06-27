@@ -65,33 +65,30 @@ Explanation 2:
  So, the output is [-1, -1, 260, 520].
 */
 
-// TC = O(N log N) 
+// TC = O(N log N)
 // Concept is to create a maxHeap on the go, get the top max elements from the heap, calculate the multiplication and put the elements back in the heap
 
-const { insert, deleteMax } = require("../maxheapImplementation");
+const { Heap } = require("../maxheapImplementation");
 
 function solve(A) {
   let result = [];
-  let heap = [];
+  let heap = new Heap();
 
   let i = 0;
   if (A.length === 0) return [];
   if (A.length === 1) return [-1];
   if (A.length === 2) return [-1, -1];
   while (i < A.length) {
-    heap = insert(heap, A[i]);
+    heap.push(A[i]);
     if (i - 2 < 0) result.push(-1);
     else {
-      let a = heap[0];
-      heap = deleteMax(heap);
-      let b = heap[0];
-      heap = deleteMax(heap);
-      let c = heap[0];
-      heap = deleteMax(heap);
+      let a = heap.pop();
+      let b = heap.pop();
+      let c = heap.pop();
       result.push(a * b * c);
-      insert(heap, a);
-      insert(heap, b);
-      insert(heap, c);
+      heap.push(a);
+      heap.push(b);
+      heap.push(c);
     }
     i++;
   }
@@ -100,4 +97,3 @@ function solve(A) {
 
 const A = [1, 2, 3, 4, 5];
 console.log(solve(A));
-[1, 2, 3];
