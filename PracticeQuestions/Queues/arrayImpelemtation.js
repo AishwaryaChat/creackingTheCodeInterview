@@ -1,5 +1,5 @@
 class Queue {
-  constructor({ maxLength = 100000 }) {
+  constructor({ maxLength = 1000000 }) {
     this.queue = [];
     this.front = 0;
     this.rear = -1
