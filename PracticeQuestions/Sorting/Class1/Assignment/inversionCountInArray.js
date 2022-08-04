@@ -55,42 +55,40 @@ function merge(A, l, m, r) {
   let j = m + 1;
   let left = [];
   let right = [];
-  let invCount = 0
+  let invCount = 0;
   while (i <= m) {
-    left.push(A[i])
-    i++
-  };
+    left.push(A[i]);
+    i++;
+  }
   while (j <= r) {
-    right.push(A[j])
-    j++
+    right.push(A[j]);
+    j++;
   }
   i = 0;
   j = 0;
-  let k=l
-  while (i <left.length && j < right.length) {
+  let k = l;
+  while (i < left.length && j < right.length) {
     if (left[i] <= right[j]) {
-      A[k] = left[i]
-      i++
-    } else {
-      A[k] = right[j]
-      invCount += (m + 1) - (l + i);
-      j++
-    }
-    k++
-  }
-  while (i < left.length)
-  {
       A[k] = left[i];
-      i++
-      k++
-  }
-  while (j < right.length)
-  {
+      i++;
+    } else {
       A[k] = right[j];
-      j++
-      k++
+      invCount += m + 1 - (l + i);
+      j++;
+    }
+    k++;
   }
-  return invCount
+  while (i < left.length) {
+    A[k] = left[i];
+    i++;
+    k++;
+  }
+  while (j < right.length) {
+    A[k] = right[j];
+    j++;
+    k++;
+  }
+  return invCount;
 }
 
 function mergeSort(A, l, r) {
@@ -108,9 +106,53 @@ function solve(A) {
   return mergeSort(A, 0, A.length - 1);
 }
 
+// I understand below solution better
+
+let count = 0;
+const MOD = 1e9 + 7;
+
+function mergeStep(A, B) {
+  let ans = [];
+  let i = 0;
+  let j = 0;
+  while (i < A.length && j < B.length) {
+    if (A[i] > B[j]) {
+      ans.push(B[j]);
+      j++;
+      count = count + A.length - i;
+      count = count % MOD;
+    } else {
+      ans.push(A[i]);
+      i++;
+    }
+  }
+  while (i < A.length) {
+    ans.push(A[i]);
+    i++;
+  }
+  while (j < B.length) {
+    ans.push(B[j]);
+    j++;
+  }
+  return ans;
+}
+function sort(A) {
+  if (A.length == 1) return A;
+
+  const mid = Math.floor(A.length / 2);
+  let B = A.slice(0, mid);
+  let C = A.slice(mid);
+  return mergeStep(sort(B), sort(C));
+}
+
+function solve1(A) {
+  A = sort(A);
+  return count;
+}
+
 // const A = [8, 4, 6, 1, 3, 5, 0];
 // const A = [4, 6, 1, 8, 3, 5, 0];
 // const A = [ 45, 10, 15, 25, 50 ]
-const A = [ 6, 12, 10, 17, 10, 22, 9, 19, 21, 31, 26, 8 ]
+const A = [6, 12, 10, 17, 10, 22, 9, 19, 21, 31, 26, 8];
 
 console.log(solve(A));
