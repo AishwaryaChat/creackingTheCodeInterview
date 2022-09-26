@@ -25,13 +25,26 @@
 // -10^4 <= arr[i], x <= 10^4
 
 // There can be 2 solutions for this problem
-// 1st using sliding window (O(n))
+// 1st using sliding window 
 // Another using Binary Search
-// I am implementing the binary search solution
+
+// The idea here to start from low 0 and high length of array - k elements, 
+// now in every iteration we will check if current low is closer than (i + k)th element, if not then move low
+// Complexity - O(n)
+function findKClosestIntegersSlidingWindow(A, k, x) {
+  let low = 0;
+  let high = A.length - k;
+  for (let i = 0; i < high; i++) {
+    if (Math.abs(A[low] - x) > Math.abs(A[i + k] - x)) {
+      low = i + 1;
+    }
+  }
+  return A.slice(low, low + k);
+}
+
 // The idea here is to find the low index and return k elements from that index
 // Complexity - O(log N)
-
-function findKClosestIntegers(A, k, x) {
+function findKClosestIntegersBinarySearch(A, k, x) {
   let low = 0;
   let high = A.length - 1;
   while (low < high) {
@@ -42,7 +55,7 @@ function findKClosestIntegers(A, k, x) {
       high = mid;
     }
   }
-  return A.slice(low, low +k);
+  return A.slice(low, low + k);
 }
 
 // const A = [1, 2, 3, 4, 5];
@@ -57,4 +70,8 @@ const A = [1, 1, 1, 10, 10, 10];
 const k = 1;
 const x = 9;
 
-console.log(findKClosestIntegers(A, k, x));
+// const A = [10, 19, 22, 84, 93];
+// const k = 4;
+// const x = 15;
+
+console.log(findKClosestIntegersSlidingWindow(A, k, x));
