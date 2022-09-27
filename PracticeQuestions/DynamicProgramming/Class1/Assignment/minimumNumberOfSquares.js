@@ -70,3 +70,26 @@ function solve(N) {
 
 
 console.log(solve(10))
+
+// Here is the Recursive Solution (Top Down approach) for the given problem
+// TC - O(N)
+// SC - Recursive space + O(N) DP space
+function count(N, dp) {
+  let i = 1
+  if(dp[N]>0) return dp[N]
+  dp[N] = N
+  while(i*i<=N) {
+      dp[N] = Math.min(dp[N], 1 + count(N-(i*i), dp))
+      i++
+  }
+  return dp[N]
+}
+
+function solveRecursive(N) {
+  let dp = new Array(N+1).fill(0)
+  dp[1] = 1
+  return ans(N, dp)
+}
+
+const N = 12
+console.log(solveRecursive(N))
