@@ -86,14 +86,14 @@ function solve(A) {
       }
     }
   }
-  console.log(DP)
+  console.log(DP);
   return DP[0][0];
 }
 
 const A = [[2], [3, 4], [6, 5, 7], [4, 1, 8, 3]];
 // const A = [[1]];
 
-console.log(solve(A));
+// console.log(solve(A));
 
 // Space complexity can be optimised by using two array, one for current row another for i+1th row, since we only need these 2
 // SC = O(N)
@@ -121,6 +121,17 @@ function solveOptimised(A) {
 
 // console.log(solveOptimised(A));
 
-
 // Top-down approach
 
+function topDown(A, i, j, N) {
+  if (i === N) return A[i][j];
+  return (
+    A[i][j] + Math.min(topDown(A, i + 1, j, N), topDown(A, i + 1, j + 1, N))
+  );
+}
+
+function solve2(A) {
+  return topDown(A, 0, 0, A.length - 1);
+}
+
+console.log(solve2(A));
