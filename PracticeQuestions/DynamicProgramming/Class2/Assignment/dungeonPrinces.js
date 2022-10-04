@@ -93,9 +93,6 @@ function solve(A) {
     }
   }
   return health[0][0];
-  //   for (let i = 0; i < A.length; i++) {
-  //     for (let j = 0; j < A[i].length; j++) {}
-  //   }
 }
 
 // const A = [
@@ -110,4 +107,4 @@ const A = [
   [1, 0, -1],
 ];
 
-console.log(solve(A));
+console.log(solveTopDown(A));
