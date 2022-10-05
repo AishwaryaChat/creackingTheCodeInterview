@@ -89,6 +89,25 @@ function solve(A, B, C) {
   return dp[A.length][C];
 }
 
+function solveOptimised(A, B, C) {
+  let N = A.length;
+  let ithRow = new Array(C + 1).fill(0);
+  let iplus1thRow = new Array(C + 1).fill(0);
+  for (let i = 0; i < N; i++) {
+    for (let w = 0; w <= C; w++) {
+      if (B[i] <= w) {
+        // Exclude or include
+        iplus1thRow[w] = Math.max(ithRow[w], ithRow[w - B[i]] + A[i]);
+      } else {
+        // Exclude
+        iplus1thRow[w] = ithRow[w];
+      }
+    }
+    ithRow = iplus1thRow.map(ele => ele)
+  }
+  return iplus1thRow[C]
+}
+
 // A = [60, 100, 120];
 // B = [10, 20, 30];
 // C = 50;
@@ -102,4 +121,4 @@ const A = [359, 963, 465, 706, 146, 282, 828, 962, 492];
 const B = [96, 43, 28, 37, 92, 5, 3, 54, 93];
 const C = 383;
 
-console.log(solve(A, B, C));
+console.log(solveOptimised(A, B, C));
