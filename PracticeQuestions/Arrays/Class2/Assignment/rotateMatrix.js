@@ -67,26 +67,30 @@ Explanation 2:
 */
 
 function solve(A) {
-    // take matrix transpose
-    for(let i=0; i<A.length; i++) {
-        for(let j=0; j<i; j++) {
-            [A[i][j], A[j][i]] = [A[j][i], A[i][j]]
-        }
+  function transpose(A) {
+    for (let i = 0; i < A.length; i++) {
+      for (let j = 0; j < i; j++) {
+        [A[i][j], A[j][i]] = [A[j][i], A[i][j]];
+      }
     }
-    let N = A.length -1
-    // reverse row
-    for(let i=0; i<=N; i++) {
-        for(let j=0; j<=Math.floor(N/2); j++) {
-            [A[i][j], A[i][N-j]] = [A[i][N-j], A[i][j]]
-        }
+    return A;
+  }
+
+  function reverseRow(A) {
+    for (let i = 0; i < A.length; i++) {
+      for (let j = A.length - 1, k = 0; j > k; j--, k++) {
+        [A[i][j], A[i][k]] = [A[i][k], A[i][j]];
+      }
     }
-    return A
+    return A;
+  }
+
+  return reverseRow(transpose(A));
 }
 
 const A = [
-    [1, 2],
-    [3, 4]
- ]
+  [1, 2],
+  [3, 4],
+];
 
- console.log(solve(A))
-
+console.log(solve(A));

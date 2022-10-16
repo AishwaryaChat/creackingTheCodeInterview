@@ -70,6 +70,7 @@ function findFirstMissingPositiveInteger(A) {
             i++
         }
     }
+    console.log("A", A)
 
     for(let i=0; i<n; i++) {
         if(A[i] !== i+1) {
@@ -82,8 +83,8 @@ function findFirstMissingPositiveInteger(A) {
 const A = [3, 4, -1, 1]
 console.log(findFirstMissingPositiveInteger(A))
 
-const B = [-8, -7, -6]
-console.log(findFirstMissingPositiveInteger(B))
+// const B = [-8, -7, -6]
+// console.log(findFirstMissingPositiveInteger(B))
 
 const C = [1, 2, 0]
 console.log(findFirstMissingPositiveInteger(C))
@@ -91,13 +92,13 @@ console.log(findFirstMissingPositiveInteger(C))
 const D = [ 2, 3, 1, 2 ]
 console.log(findFirstMissingPositiveInteger(D))
 
-const E = [1]
-console.log(findFirstMissingPositiveInteger(E))
+// const E = [1]
+// console.log(findFirstMissingPositiveInteger(E))
 
-const F = [ 1, 2, 3, 4, 5, 6 ]
-console.log(findFirstMissingPositiveInteger(F))
+// const F = [ 1, 2, 3, 4, 5, 6 ]
+// console.log(findFirstMissingPositiveInteger(F))
 
-const G = [ 2, 3, 1, 2, 2 ]
-console.log(findFirstMissingPositiveInteger(G))
+// const G = [ 2, 3, 1, 2, 2 ]
+// console.log(findFirstMissingPositiveInteger(G))
 
 

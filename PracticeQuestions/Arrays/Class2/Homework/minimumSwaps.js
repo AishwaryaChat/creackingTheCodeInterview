@@ -12,7 +12,7 @@ Note: It is possible to swap any two elements, not necessarily consecutive.
 Problem Constraints
 
 1 <= length of the array <= 100000
--109 <= A[i], B <= 109
+-10^9 <= A[i], B <= 10^9
 
 
 
