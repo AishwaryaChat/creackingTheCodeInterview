@@ -3,7 +3,7 @@ class Heap {
     this._heap = [];
   }
   size() {
-    return this._heap.length
+    return this._heap.length;
   }
   peek() {
     return this._heap[0];
@@ -23,7 +23,7 @@ class Heap {
     }
   }
   pop() {
-    if (this._heap.length === 0) return 
+    if (this._heap.length === 0) return;
     let n = this.size();
     let popped = this._heap[0];
     this._heap[0] = this._heap[n - 1];
@@ -41,11 +41,7 @@ class Heap {
         this._heap[i] = this._heap[LC];
         this._heap[LC] = temp;
         i = LC;
-      } else if (
-        this._heap[RC] !== undefined &&
-        this._heap[RC] <= ele &&
-        this._heap[RC] <= this._heap[LC]
-      ) {
+      } else if (this._heap[RC] <= ele) {
         let temp = this._heap[i];
         this._heap[i] = this._heap[RC];
         this._heap[RC] = temp;
