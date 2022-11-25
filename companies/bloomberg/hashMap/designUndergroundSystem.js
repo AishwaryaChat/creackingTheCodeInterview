@@ -128,3 +128,92 @@ UndergroundSystem.prototype.getAverageTime = function (
   );
   return t / times;
 };
+
+// Your UndergroundSystem object will be instantiated and called as such:
+
+function processInput(events, eventTimes) {
+  var obj = new UndergroundSystem();
+  const result = [];
+  for (let i = 0; i < events.length; i++) {
+    const event = events[i];
+    switch (event) {
+      case "checkIn": {
+        const [id, stationName, time] = eventTimes[i];
+        obj.checkIn(id, stationName, time);
+        result.push(null);
+        continue;
+      }
+      case "checkOut": {
+        const [id, stationName, time] = eventTimes[i];
+        obj.checkOut(id, stationName, time);
+        result.push(null);
+        continue;
+      }
+      case "getAverageTime": {
+        const [source, dest] = eventTimes[i];
+        result.push(obj.getAverageTime(source, dest));
+        continue;
+      }
+      default:
+        throw new Error("Invalid event");
+    }
+  }
+  return result;
+}
+//  * obj.checkIn(id,stationName,t)
+//  * obj.checkOut(id,stationName,t)
+//  * var param_3 = obj.getAverageTime(startStation,endStation)
+
+// const events = [
+//   "checkIn",
+//   "checkOut",
+//   "getAverageTime",
+//   "checkIn",
+//   "checkOut",
+//   "getAverageTime",
+//   "checkIn",
+//   "checkOut",
+//   "getAverageTime",
+// ];
+// const eventTimes = [
+//   [10, "Leyton", 3],
+//   [10, "Paradise", 8],
+//   ["Leyton", "Paradise"],
+//   [5, "Leyton", 10],
+//   [5, "Paradise", 16],
+//   ["Leyton", "Paradise"],
+//   [2, "Leyton", 21],
+//   [2, "Paradise", 30],
+//   ["Leyton", "Paradise"],
+// ];
+
+const events = [
+  "checkIn",
+  "checkIn",
+  "checkIn",
+  "checkOut",
+  "checkOut",
+  "checkOut",
+  "getAverageTime",
+  "getAverageTime",
+  "checkIn",
+  "getAverageTime",
+  "checkOut",
+  "getAverageTime",
+];
+const eventTimes = [
+  [45, "Leyton", 3],
+  [32, "Paradise", 8],
+  [27, "Leyton", 10],
+  [45, "Waterloo", 15],
+  [27, "Waterloo", 20],
+  [32, "Cambridge", 22],
+  ["Paradise", "Cambridge"],
+  ["Leyton", "Waterloo"],
+  [10, "Leyton", 24],
+  ["Leyton", "Waterloo"],
+  [10, "Waterloo", 38],
+  ["Leyton", "Waterloo"],
+];
+
+console.log(processInput(events, eventTimes));
