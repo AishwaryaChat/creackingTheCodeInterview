@@ -64,6 +64,22 @@ function solve(A, B) {
   return ways[B];
 }
 
+function recursive(A, B, DP) {
+  if(B===0) return 1
+  if(DP[B]) return DP[B]
+  for(let i=0; i<A.length; i++) {
+    if(A[i]<=B) {
+      DP[B] += recursive(A, B-A[i], DP)
+    }
+  }
+  return DP[B]
+}
+
+function solveRecursive(A, B) {
+let DP = new Array(B+1).fill(0)
+return recursive(A, B, DP)
+}
+
 // Below solution is correct when we want result only for a combination of coins, order doesn't matter, so {1, 3} === {3, 1}
 // TC - O(N * B)
 // SC = O(B)
@@ -73,15 +89,16 @@ function solveCombinations(A, B) {
   for (let i = 0; i < A.length; i++) {
     for (let sum = A[i]; sum <= B; sum++) {
       ways[sum] += ways[sum - A[i]];
+      console.log("DP", ways, "sum", sum, "A[i]", A[i], "sum - A[i]", sum - A[i])
     }
   }
   return ways[B];
 }
 
-// const A = [1, 2, 3];
-// const B = 4;
+const A = [3,1, 2];
+const B = 4;
 
-const A = [10];
-const B = 10;
+// const A = [10];
+// const B = 10;
 
 console.log(solveCombinations(A, B));
