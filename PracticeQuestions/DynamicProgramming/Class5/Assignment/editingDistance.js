@@ -82,6 +82,27 @@ function solve(A, B) {
   return dp[N][M];
 }
 
+// TC - O(N*M)
+// SC - O(M)
+function solveSpaceOptimized(A, B) {
+  const N = A.length;
+  const M = B.length;
+  let dp1 = new Array(M + 1).fill(0);
+  let dp = new Array(M + 1).fill(0);
+
+  for (let i = 0; i <= N; i++) {
+    for (let j = 0; j <= M; j++) {
+      if (i == 0 || j == 0) dp[j] = Math.max(i, j);
+      else if (A[i - 1] === B[j - 1]) dp[j] = dp1[j - 1];
+      else {
+        dp[j] = Math.min(1 + dp1[j], 1 + dp[j - 1], 1 + dp1[j - 1]);
+      }
+    }
+    dp1 = dp.map((a) => a);
+  }
+  return dp[M];
+}
+
 // const A = "abad";
 // const B = "abac";
 
@@ -91,4 +112,4 @@ const B = "Antihuman";
 // const A = "a";
 // const B = "b";
 
-console.log(solve(A, B));
+console.log(solveSpaceOptimized(A, B));
