@@ -77,6 +77,7 @@ function solveSpaceOptimised(A, B) {
   let DP1 = new Array(M + 1).fill(0);
   DP1[0] = 1;
   const DP = new Array(M + 1).fill(0);
+  DP[0] = 1;
   for (let i = 1; i <= N; i++) {
     for (let j = 1; j <= M; j++) {
       const isEqual = A[i - 1] === B[j - 1];
@@ -112,6 +113,8 @@ function solveRecursive(A, B) {
 const initMemo = (s, t) =>
   new Array(s.length).fill().map(() => new Array(t.length).fill(null));
 
-const A = "rabbbit";
-const B = "rabbit";
+// const A = "rabbbit";
+// const B = "rabbit";
+const A = "aaaababbababbaabbaaababaaabbbaaabbb";
+const B = "bbababa";
 console.log(solveSpaceOptimised(A, B));
