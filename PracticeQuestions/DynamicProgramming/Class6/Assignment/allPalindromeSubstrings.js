@@ -11,7 +11,7 @@ eg: A = "abcb"
 */
 
 // TC = O(N^2)
-// SC = O(1)
+// SC = O(N^2)
 
 function solve(A) {
   let isP = new Array(A.length);
@@ -33,4 +33,4 @@ function solve(A) {
 
 // console.log(solve(A));
 
-module.exports = solve
+module.exports = solve;
