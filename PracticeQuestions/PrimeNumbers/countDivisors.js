@@ -104,12 +104,11 @@ function getMe(A) {
   st.set(A, ans);
   return ans;
 }
-function solve2 (A) {
-    let ret = [];
-    A.forEach((ele) => ret.push(getMe(ele)));
-    return ret;
-  }
-
+function solve2(A) {
+  let ret = [];
+  A.forEach((ele) => ret.push(getMe(ele)));
+  return ret;
+}
 
 // const A = [2, 3, 4, 5]
 const A = [8, 9, 10];

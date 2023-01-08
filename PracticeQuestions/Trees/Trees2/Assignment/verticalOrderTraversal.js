@@ -68,7 +68,7 @@ Explanation 1:
  First row represent the verical line 1 and so on.
 */
 
-const Queue = require("../Queues/arrayImpelemtation");
+const Queue = require("../../../Queues/arrayImpelemtation");
 
 class TreeNode {
   constructor(data, left, right) {

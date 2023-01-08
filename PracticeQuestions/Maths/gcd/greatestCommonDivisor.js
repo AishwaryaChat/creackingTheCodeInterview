@@ -60,15 +60,17 @@ Explanation 2:
 */
 
 function gcd(a, b) {
-  if (a == 0 || b == 0) return Math.max(a, b);
-  else if (a === b) return b;
-  else if (a < b) return gcd(a, b % a);
-  else return gcd(b, a % b);
-//   OR
-// return b ? gcd(b, b%a) : a
+  // if (a == 0 || b == 0) return Math.max(a, b);
+  // else if (a === b) return b;
+  // else if (a < b) return gcd(a, b % a);
+  // else return gcd(b, a % b);
+// //   OR
+// return b ? gcd(b, a%b) : a
+return !b ? a : gcd( b, a%b );
 }
 
-const a = 4
-const b = 6
+
+const a = 10
+const b = 3
 
 console.log(gcd(a, b))

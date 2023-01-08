@@ -73,7 +73,7 @@ Explanation 2:
 // TC = O(H)
 // SC = O(N) - for intime and out time
 
-const calculateInTimeOutTimeMap = require("./LCAInTimeOutTimeConcept");
+const calculateInTimeOutTimeMap = require("../../LCAInTimeOutTimeConcept");
 const getTreeFromLevelOrder = require("./deserializeBinaryTree");
 
 class TreeNode {

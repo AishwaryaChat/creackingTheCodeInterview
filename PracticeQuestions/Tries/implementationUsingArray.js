@@ -2,20 +2,25 @@ class Node {
   constructor(maxLength = 26) {
     this.isEnd = false;
     this.next = new Array(maxLength).fill(null);
-    this.count = 0
+    this.count = 0;
+    this.prefixWords = []
   }
 }
 
-function insert(root, s) {
+function insert(root, s, weight) {
   let curr = root;
   for (let i = 0; i < s.length; i++) {
     const charCode = s[i].charCodeAt(0) - 97;
     if (curr.next[charCode] === null) curr.next[charCode] = new Node();
     curr = curr.next[charCode];
-    curr.count += 1 
+    curr.count += 1;
+    curr.prefixWords.push({word: s, weight})
   }
   curr.isEnd = true;
-  return root
+  if (weight) {
+    curr.weight = weight;
+  }
+  return root;
 }
 
 function search(root, s) {
@@ -31,5 +36,5 @@ function search(root, s) {
 module.exports = {
   search,
   insert,
-  Node
+  Node,
 };

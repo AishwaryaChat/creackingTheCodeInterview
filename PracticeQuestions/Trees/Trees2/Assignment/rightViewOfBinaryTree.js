@@ -71,7 +71,7 @@ Right view is described.
 // Use Level order traversal
 // TC = O(N)
 
-const Queue = require("../Queues/arrayImpelemtation")
+const Queue = require("../../../Queues/arrayImpelemtation")
 
 class TreeNode {
   constructor(data, left = null, right = null) {
@@ -95,6 +95,7 @@ while(!queue.isEmpty()) {
         console.log("inside")
         ans.push(ele.data)
         last = queue.rearElement()
+        console.log("last", last.data)
     }
 }
 return ans

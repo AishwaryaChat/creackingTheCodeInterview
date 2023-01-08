@@ -77,7 +77,7 @@ Explanation 2:
 // Idea here is to check if the path that we are going through and the current node is already present in that path, if yes then return true
 
 // TC = O(N+E)
-// SC = O(N) - Adjacency matrix + visited array + path array + recursion stack
+// SC = O(N) - 
 
 function getAdjList(A, B) {
   let adjList = {};

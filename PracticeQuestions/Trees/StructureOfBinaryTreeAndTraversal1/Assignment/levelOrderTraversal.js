@@ -69,7 +69,7 @@ Explanation 1:
 
 // TC = O(N)
 
-const Queue = require("../Queues/arrayImpelemtation");
+const Queue = require("../../../Queues/arrayImpelemtation");
 
 class TreeNode {
   constructor(data, left = null, right = null) {

@@ -1,8 +1,8 @@
 class Queue {
-  constructor({ maxLength = 1000000 }) {
+  constructor({ maxLength = 1000000 } = {}) {
     this.queue = [];
     this.front = 0;
-    this.rear = -1
+    this.rear = -1;
     this.maxLength = maxLength;
   }
 
@@ -30,7 +30,7 @@ class Queue {
   }
 
   getRear() {
-      return this.rear
+    return this.rear;
   }
 
   rearElement() {
@@ -38,17 +38,16 @@ class Queue {
   }
 
   getFront() {
-      return this.front
+    return this.front;
   }
 
   frontElement() {
-      return this.queue[this.front]
+    return this.queue[this.front];
   }
 
   getQueue() {
-    return this.queue
+    return this.queue;
   }
-
 }
 
 module.exports = Queue;

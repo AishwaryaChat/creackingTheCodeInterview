@@ -1,7 +1,9 @@
 /*
 Given an integer N find the number of Prime Numbers from 1 to N
 */
-
+// TC = O(Nlog(log(N))) === O(N)
+// The is solved using Sieve of Eratosthenes Theorem
+// Sieve's Theorem
 function solve(N) {
     let P = Array(N).fill(true)
     P[0] = false 

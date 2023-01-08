@@ -69,8 +69,8 @@ Explanation 2:
 // TC = O(N)
 // SC = O(maximumNodes at a level)
 
-const preOrder = require("./preorderTraversal");
-const Queue = require("../Queues/arrayImpelemtation");
+const preOrder = require("../../preorderTraversal");
+const Queue = require("../../../Queues/arrayImpelemtation");
 
 class TreeNode {
   constructor(data, left = null, right = null) {

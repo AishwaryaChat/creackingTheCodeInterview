@@ -75,7 +75,7 @@ which is a valid BST
 // Since we are asked to use constant space so we will find inorder using
 // Morris Inorder Traversal
 
-const inorder = require("./morrisInorderTraversal");
+const inorder = require("../../morrisInorderTraversal");
 
 class TreeNode {
   constructor(data, left = null, right = null) {

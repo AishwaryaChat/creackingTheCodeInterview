@@ -81,7 +81,7 @@ Top view is described.
 // run one loop from 0 till indexMin and keep pushing the nodes in ans variable
 // run another loop from 1 till indexMax and keep pushing the nodes in ans variable
 
-const Queue = require("../Queues/arrayImpelemtation")
+const Queue = require("../../../Queues/arrayImpelemtation")
 
 class TreeNode {
     constructor(data, left = null, right  = null) {
