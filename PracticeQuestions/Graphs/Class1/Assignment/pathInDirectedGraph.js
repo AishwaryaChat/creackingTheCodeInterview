@@ -100,20 +100,45 @@ function bfs(adjList, s, e) {
 }
 
 function getAdjList(B) {
-  let adjList = {};
+  let list = {};
   for (let i = 0; i < B.length; i++) {
-    if (adjList[B[i][0]]) {
-      adjList[B[i][0]].push(B[i][1]);
-    } else {
-      adjList[B[i][0]] = [B[i][1]];
-    }
+    const [n1, n2] = B[i];
+    if (!list[n1]) list[n1] = [];
+    list[n1].push(n2);
   }
-  return adjList;
+  return list;
 }
 
 function solve(A, B) {
   let adjList = getAdjList(B);
   return bfs(adjList, 1, A);
+}
+
+// TC - O(N+E)
+// SC - O(N)
+
+function dfs(node, list, visited, target) {
+  if (node === target) return true;
+  let nodes = list[node];
+  let result = false;
+  if (nodes) {
+    for (let i = 0; i < nodes.length; i++) {
+      const currentNode = nodes[i];
+      if (!visited[currentNode]) {
+        visited[currentNode] = true;
+        result = dfs2(currentNode, list, visited, target);
+        if (result) return result;
+      }
+    }
+  }
+  return result;
+}
+
+function solveUsingDfs(A, B) {
+  const adjacencyList = getAdjList(B);
+  let visited = new Array(A + 1).fill(false);
+  visited[1] = true;
+  return dfs2(1, adjacencyList, visited, A);
 }
 
 // const A = 5;
@@ -122,7 +147,7 @@ function solve(A, B) {
 //   [4, 1],
 //   [2, 4],
 //   [3, 4],
-//   [5, 2],
+//   [2, 5],
 //   [1, 3],
 // ];
 
@@ -134,27 +159,35 @@ function solve(A, B) {
 //   [4, 5],
 // ];
 
-const A = 5;
-const B = [
-  [1, 4],
-  [2, 1],
-  [4, 3],
-  [4, 5],
-  [2, 3],
-  [2, 4],
-  [1, 5],
-  [5, 3],
-  [2, 5],
-  [5, 1],
-  [4, 2],
-  [3, 1],
-  [5, 4],
-  [3, 4],
-  [1, 3],
-  [4, 1],
-  [3, 5],
-  [3, 2],
-  [5, 2],
-];
+// const A = 4
+// const B =
+// [
+//   [1, 2],
+//   [2, 3],
+//   [4, 3]
+// ]
 
-console.log(solve(A, B));
+// const A = 5;
+// const B = [
+//   [1, 4],
+//   [2, 1],
+//   [4, 3],
+//   [4, 5],
+//   [2, 3],
+//   [2, 4],
+//   [1, 5],
+//   [5, 3],
+//   [2, 5],
+//   [5, 1],
+//   [4, 2],
+//   [3, 1],
+//   [5, 4],
+//   [3, 4],
+//   [1, 3],
+//   [4, 1],
+//   [3, 5],
+//   [3, 2],
+//   [5, 2],
+// ];
+
+console.log(solveUsingDfs(A, B));
