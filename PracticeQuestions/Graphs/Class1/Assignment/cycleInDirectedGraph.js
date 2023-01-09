@@ -77,15 +77,16 @@ Explanation 2:
 // Idea here is to check if the path that we are going through and the current node is already present in that path, if yes then return true
 
 // TC = O(N+E)
-// SC = O(N) - 
+// SC = O(N) -
 
-function getAdjList(A, B) {
-  let adjList = {};
-  for (let i = 1; i <= A; i++) adjList[i] = [];
+function getAdjList(B) {
+  let list = {};
   for (let i = 0; i < B.length; i++) {
-    adjList[B[i][0]].push(B[i][1]);
+    const [n1, n2] = B[i];
+    if (!list[n1]) list[n1] = [];
+    list[n1].push(n2);
   }
-  return adjList;
+  return list;
 }
 
 function dfs(adjList, visited, path, s) {
@@ -93,10 +94,12 @@ function dfs(adjList, visited, path, s) {
     visited[s] = true;
     path[s] = true;
     let nodes = adjList[s];
-    for (let i = 0; i < nodes.length; i++) {
-      let node = nodes[i];
-      if (path[node]) return true;
-      if (!visited[node] && dfs(adjList, visited, path, node)) return true;
+    if (nodes) {
+      for (let i = 0; i < nodes.length; i++) {
+        let node = nodes[i];
+        if (path[node]) return true;
+        if (!visited[node] && dfs(adjList, visited, path, node)) return true;
+      }
     }
   }
   path[s] = false;
@@ -104,25 +107,35 @@ function dfs(adjList, visited, path, s) {
 }
 
 function solve(A, B) {
-  let adjList = getAdjList(A, B);
-  let visited = new Array(B.length + 1).fill(false);
+  let adjList = getAdjList(B);
+  let visited = new Array(A + 1).fill(false);
   let path = new Array(B.length + 1).fill(false);
   //   since the graph may or may not connected so we have to do this for each node
   for (let i = 1; i <= A; i++) {
-    if (!visited[i] && dfs(adjList, visited, path, i))
-      return 1;
+    if (!visited[i] && dfs(adjList, visited, path, i)) return 1;
   }
   return 0;
 }
 
+// const A = 5;
+// const B = [
+//   [1, 2],
+//   [4, 1],
+//   [2, 4],
+//   [3, 4],
+//   [5, 2],
+//   [1, 3],
+// ];
+
 const A = 5;
 const B = [
   [1, 2],
-  [4, 1],
-  [2, 4],
-  [3, 4],
-  [5, 2],
   [1, 3],
+  [2, 3],
+  [1, 4],
+  [4, 3],
+  [4, 5],
+  [3, 5],
 ];
 
 // const A = 5;
