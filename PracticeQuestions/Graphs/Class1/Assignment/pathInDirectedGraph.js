@@ -87,12 +87,14 @@ function bfs(adjList, s, e) {
   let queue = [s];
   let ele;
   while (queue.length !== 0) {
-    visited[queue[queue.length - 1]] = true;
     ele = queue.shift();
+    visited[ele] = true;
     if (ele === e) return 1;
-    if (adjList[ele]) {
-      for (let i = 0; i < adjList[ele].length; i++) {
-        if (!visited[adjList[ele][i]]) queue.push(adjList[ele][i]);
+    const nodes = adjList[ele]
+    if (nodes) {
+      for (let i = 0; i < nodes.length; i++) {
+        const node = nodes[i]
+        if (!visited[node]) queue.push(node);
       }
     }
   }
@@ -167,27 +169,27 @@ function solveUsingDfs(A, B) {
 //   [4, 3]
 // ]
 
-// const A = 5;
-// const B = [
-//   [1, 4],
-//   [2, 1],
-//   [4, 3],
-//   [4, 5],
-//   [2, 3],
-//   [2, 4],
-//   [1, 5],
-//   [5, 3],
-//   [2, 5],
-//   [5, 1],
-//   [4, 2],
-//   [3, 1],
-//   [5, 4],
-//   [3, 4],
-//   [1, 3],
-//   [4, 1],
-//   [3, 5],
-//   [3, 2],
-//   [5, 2],
-// ];
+const A = 5;
+const B = [
+  [1, 4],
+  [2, 1],
+  [4, 3],
+  [4, 5],
+  [2, 3],
+  [2, 4],
+  [1, 5],
+  [5, 3],
+  [2, 5],
+  [5, 1],
+  [4, 2],
+  [3, 1],
+  [5, 4],
+  [3, 4],
+  [1, 3],
+  [4, 1],
+  [3, 5],
+  [3, 2],
+  [5, 2],
+];
 
-console.log(solveUsingDfs(A, B));
+console.log(solve(A, B));
