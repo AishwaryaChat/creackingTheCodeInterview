@@ -85,9 +85,11 @@ function pathExist(s, e, adjList, visited) {
   if (s === e) return true;
   visited[s] = true;
   let adjNodes = adjList[s];
-  for (let i = 0; i < adjNodes.length; i++) {
-    if (!visited[adjNodes[i]] && pathExist(adjNodes[i], e, adjList, visited))
-      return true;
+  if(adjNodes) {
+    for (let i = 0; i < adjNodes.length; i++) {
+      if (!visited[adjNodes[i]] && pathExist(adjNodes[i], e, adjList, visited))
+        return true;
+    }
   }
   return false;
 }
