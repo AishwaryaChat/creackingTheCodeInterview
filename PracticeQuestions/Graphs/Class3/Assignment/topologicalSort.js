@@ -78,8 +78,6 @@ Explanation 2:
  The given graph contain cycle so topological ordering not possible we will return empty array.
 */
 
-// Right to left
-
 function getAdjacencyList(A, B) {
   let adjList = {};
   for (let i = 1; i <= A; i++) {
@@ -92,28 +90,6 @@ function getAdjacencyList(A, B) {
   }
   return adjList;
 }
-
-// Below right to left solution is not working
-
-// function dfs(s, adjList, visited, op) {
-//   visited[s] = true;
-//   let nodes = adjList[s];
-//   for (let i = 0; i < nodes.length; i++) {
-//     let node = nodes[i];
-//     if (!visited[node]) dfs(node, adjList, visited, op);
-//   }
-//   op.push(s);
-// }
-
-// function solve(A, B) {
-//   let adjList = getAdjacencyList(A, B);
-//   let op = [];
-//   let visited = new Array(A + 1).fill(false);
-//   for (let i = 1; i <= A; i++) {
-//     if (!visited[i]) dfs(i, adjList, visited, op);
-//   }
-//   return op;
-// }
 
 ///////////////////////////////////////////////////////////
 
@@ -229,12 +205,9 @@ function optimized(A, B) {
   for (let i = 1; i < indegree.length; i++) {
     if (indegree[i] === 0) minHeap.push(i);
   }
-  console.log("initial minHeap", minHeap);
   let op = [];
   while (minHeap.size() > 0) {
     let ele = minHeap.pop();
-    console.log("popped", ele);
-    console.log("minHeap aafter pop", minHeap);
     op.push(ele);
     let adj = adjList[ele];
     for (let i = 0; i < adj.length; i++) {
@@ -243,12 +216,34 @@ function optimized(A, B) {
         indegree[node] -= 1;
         if (indegree[node] === 0) {
           minHeap.push(node);
-          console.log("minHeap aafter push", minHeap);
         }
       }
     }
   }
   return op;
+}
+
+// Right to left
+// The right to left solution will not give the lexographically smallest answer
+
+function dfs(s, adjList, visited, op) {
+  visited[s] = true;
+  let nodes = adjList[s];
+  for (let i = 0; i < nodes.length; i++) {
+    let node = nodes[i];
+    if (!visited[node]) dfs(node, adjList, visited, op);
+  }
+  op.push(s);
+}
+
+function solve(A, B) {
+  let adjList = getAdjacencyList(A, B);
+  let op = [];
+  let visited = new Array(A + 1).fill(false);
+  for (let i = 1; i <= A; i++) {
+    if (!visited[i]) dfs(i, adjList, visited, op);
+  }
+  return op.reverse();
 }
 
 // const A = 6;
@@ -268,8 +263,6 @@ function optimized(A, B) {
 //   [3, 1],
 // ];
 
-// console.log(solve(A, B));
-
 // console.log(solveLeftToRight(A, B));
 
 const A = 8;
@@ -284,4 +277,5 @@ const B = [
   [8, 2],
   [8, 6],
 ];
-console.log(optimized(A, B));
+console.log(solve(A, B));
+// console.log(optimized(A, B));
