@@ -1,3 +1,14 @@
+function cloneObject(obj) {
+  let newObj = {};
+  Object.keys(obj).forEach((key) => {
+    if (typeof obj[key] === "object") {
+      newObj[key] = cloneObject(obj[key]);
+    } else {
+      newObj[key] = obj[key];
+    }
+  });
+  return newObj;
+}
 class Heap {
   constructor({ heap = [], comparator }) {
     this._heap = heap;
@@ -27,8 +38,8 @@ class Heap {
     const index1Value = this._heap[index1];
     const index2Value = this._heap[index2];
     if (this.dataType === "object") {
-      this._heap[index2] = { value: index1Value.value, key: index1Value.key };
-      this._heap[index1] = { value: index2Value.value, key: index2Value.key };
+      this._heap[index2] = cloneObject(index1Value);
+      this._heap[index1] = cloneObject(index2Value);
     } else {
       this._heap[index1] = index2Value;
       this._heap[index2] = index1Value;
