@@ -78,6 +78,8 @@ Explanation 2:
  The given graph contain cycle so topological ordering not possible we will return empty array.
 */
 
+const MinHeap = require("../../../Heaps/heapGeneralisedImplementation");
+
 function getAdjacencyList(A, B) {
   let adjList = {};
   for (let i = 1; i <= A; i++) {
@@ -136,69 +138,8 @@ function solveLeftToRight(A, B) {
 }
 
 // TC - O(NlogN)
-class MinHeap {
-  constructor() {
-    this.heap = [];
-  }
-
-  size() {
-    return this.heap.length;
-  }
-
-  push(data) {
-    this.heap.push(data);
-    let index = this.size() - 1;
-    let parentIndex = Math.floor((index - 1) / 2);
-    let parent = this.heap[parentIndex];
-    while (data < parent) {
-      [this.heap[index], this.heap[parentIndex]] = [
-        this.heap[parentIndex],
-        this.heap[index],
-      ];
-      index = parentIndex;
-      parentIndex = Math.floor((index - 1) / 2);
-      parent = this.heap[parentIndex];
-    }
-  }
-
-  pop() {
-    if (this.size() === 0) return;
-    let popped = this.heap[0];
-    this.heap[0] = this.heap[this.size() - 1];
-    this.heap.pop();
-    let i = 0;
-    let LC = 2 * i + 1;
-    let RC = 2 * i + 2;
-    while (true) {
-      let ele = this.heap[i];
-      if (
-        this.heap[LC] <= ele &&
-        (this.heap[RC] === undefined || this.heap[LC] <= this.heap[RC])
-      ) {
-        let temp = this.heap[i];
-        this.heap[i] = this.heap[LC];
-        this.heap[LC] = temp;
-        i = LC;
-      } else if (
-        this.heap[RC] !== undefined &&
-        this.heap[RC] <= ele &&
-        this.heap[RC] <= this.heap[LC]
-      ) {
-        let temp = this.heap[i];
-        this.heap[i] = this.heap[RC];
-        this.heap[RC] = temp;
-        i = RC;
-      } else {
-        break;
-      }
-      LC = 2 * i + 1;
-      RC = 2 * i + 2;
-    }
-    return popped;
-  }
-}
-
-function optimized(A, B) {
+// SC - O(E)
+function optimizedLeftToRight(A, B) {
   let adjList = getAdjacencyList(A, B);
   let indegree = getIndegree(A, B);
   let minHeap = new MinHeap();
@@ -225,7 +166,12 @@ function optimized(A, B) {
 
 // Right to left
 // The right to left solution will not give the lexographically smallest answer
-
+// Below solution works on the concept of outdegree
+// If outdegree of a node is 0 then it will be visited last in the path
+// So as soon as a node doesnt have any more edges to it, push it to output
+// This will give you a right to left topological order
+// TC - O(E)
+// SC - O(E)
 function dfs(s, adjList, visited, op) {
   visited[s] = true;
   let nodes = adjList[s];
@@ -278,4 +224,4 @@ const B = [
   [8, 6],
 ];
 console.log(solve(A, B));
-// console.log(optimized(A, B));
+// console.log(optimizedLeftToRight(A, B));
