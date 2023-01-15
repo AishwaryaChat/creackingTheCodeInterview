@@ -97,30 +97,28 @@ function getAdjacencyList(A, B) {
   return list;
 }
 
-function pushToMinHeap(node, adjList, minHeap, distance = 0, ans) {
-  for (let i = 0; i < adjList[node].length; i++) {
-    const [n2, weight] = adjList[node][i];
-    if (ans[n2] === -1) {
-      minHeap.push({ s: node, d: n2, value: distance + weight });
-    }
-  }
-}
-
 function solve(A, B, source) {
   const minHeap = new Heap({ comparator: (a, b) => a < b });
   const adjList = getAdjacencyList(A, B);
-  let ans = new Array(A).fill(-1);
+  let ans = new Array(A).fill(Number.MAX_SAFE_INTEGER);
   minHeap.push({ d: source, value: 0, s: -1 });
   const path = new Array(A).fill(-1); // path is use to get the path to reach any node from source node
+  ans[source] = 0;
   while (minHeap.getSize() !== 0) {
     const { s, d, value: weight } = minHeap.pop();
-    if (ans[d] === -1 || d === source) {
-      path[d] = s;
-      ans[d] = weight;
-      pushToMinHeap(d, adjList, minHeap, weight, ans);
+    const edges = adjList[d];
+    for (let i = 0; i < edges.length; i++) {
+      const [n2, neighBourWeight] = edges[i];
+      const newWeight = weight + neighBourWeight;
+      if (ans[n2] > newWeight) {
+        ans[n2] = newWeight;
+        path[n2] = d;
+        minHeap.push({ s: d, d: n2, value: newWeight });
+      }
     }
   }
-  return ans;
+
+  return ans.map((a) => (a === Number.MAX_SAFE_INTEGER ? -1 : a));
 }
 
 const A = 6;
