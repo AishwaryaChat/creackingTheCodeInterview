@@ -74,6 +74,10 @@
 //  Distance between (2,3) will 1 if we take path 1->3.
 //  Distance between (1,2) will 2 if we take path 1->3->2.
 
+// This question is asking to find shortest distance between various nodes in the graph
+// We can use All pair shortest path algorithm here(Floyds Warshal Algorithm)
+// TC - O(N^3)
+// SC - O(N^2)
 function getAdjacencyMatrix(N, S, D, W) {
   let matrix = new Array(N + 1)
     .fill()
@@ -88,7 +92,6 @@ function getAdjacencyMatrix(N, S, D, W) {
 function solve(A, B, C, D, E, F, G, H) {
   let adjMatrix = getAdjacencyMatrix(A, D, E, F);
   for (let k = 1; k <= A; k++) {
-    let change = 0;
     for (let i = 1; i < adjMatrix.length; i++) {
       for (let j = 1; j < adjMatrix[0].length; j++) {
         if (i === j) {
@@ -99,10 +102,8 @@ function solve(A, B, C, D, E, F, G, H) {
           adjMatrix[i][j],
           adjMatrix[i][k] + adjMatrix[k][j]
         );
-        change++;
       }
     }
-    if (change === 0) break;
   }
   adjMatrix = adjMatrix.map((a) => a.map((b) => (b == Infinity ? -1 : b)));
   let ans = new Array(G.length);
