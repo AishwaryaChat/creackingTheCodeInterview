@@ -110,10 +110,12 @@ function solve(A, B, source) {
   const minHeap = new Heap({ comparator: (a, b) => a < b });
   const adjList = getAdjacencyList(A, B);
   let ans = new Array(A).fill(-1);
-  minHeap.push({ d: source, value: 0 });
+  minHeap.push({ d: source, value: 0, s: -1 });
+  const path = new Array(A).fill(-1); // path is use to get the path to reach any node from source node
   while (minHeap.getSize() !== 0) {
-    const { d, value: weight } = minHeap.pop();
+    const { s, d, value: weight } = minHeap.pop();
     if (ans[d] === -1 || d === source) {
+      path[d] = s;
       ans[d] = weight;
       pushToMinHeap(d, adjList, minHeap, weight, ans);
     }
