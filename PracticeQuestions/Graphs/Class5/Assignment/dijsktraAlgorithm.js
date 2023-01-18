@@ -98,7 +98,7 @@ function getAdjacencyList(A, B) {
 }
 
 function solve(A, B, source) {
-  const minHeap = new Heap({ comparator: (a, b) => a < b });
+  const minHeap = new Heap({ comparator: (a, b) => a.value < b.value });
   const adjList = getAdjacencyList(A, B);
   let ans = new Array(A).fill(Number.MAX_SAFE_INTEGER);
   minHeap.push({ d: source, value: 0, s: -1 });

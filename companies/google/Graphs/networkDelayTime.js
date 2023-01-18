@@ -46,7 +46,7 @@ function getAdjacencyList(A, B) {
 }
 
 function dijkstra(distances, source, adjList) {
-  const minHeap = new MinHeap({ comparator: (a, b) => a < b });
+  const minHeap = new MinHeap({ comparator: (a, b) => a.value < b.value });
   minHeap.push({ d: source, value: 0 });
 
   // Time for starting node is 0

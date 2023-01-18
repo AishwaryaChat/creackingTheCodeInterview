@@ -96,7 +96,7 @@ function primsAlgo(s, adjList, visited, minHeap, ans) {
 function solve(A, B) {
   const adjList = getAdjList(A, B);
   let visited = new Array(A + 1).fill(false);
-  let minHeap = new Heap({ comparator: (a, b) => a < b });
+  let minHeap = new Heap({ comparator: (a, b) => a.value < b.value });
   let ans = 0;
   for (let i = 1; i <= A; i++) {
     if (!visited[i]) {

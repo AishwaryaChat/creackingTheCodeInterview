@@ -56,8 +56,8 @@ var StockPrice = function () {
   const MaxN = Math.pow(10, 5);
   this.time = 0;
   this.stock = new Map()
-  this.minHeap = new Heap({ comparator: (a, b) => a < b });
-  this.maxHeap = new Heap({ comparator: (a, b) => a > b });
+  this.minHeap = new Heap({ comparator: (a, b) => a.value < b.value });
+  this.maxHeap = new Heap({ comparator: (a, b) => a.value > b.value });
 
   this.getMinHeap = function () {
     return this.minHeap.getHeap();

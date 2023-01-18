@@ -147,7 +147,7 @@ function optimizedLeftToRight(A, B) {
     if (indegree[i] === 0) minHeap.push(i);
   }
   let op = [];
-  while (minHeap.size() > 0) {
+  while (minHeap.getSize() > 0) {
     let ele = minHeap.pop();
     op.push(ele);
     let adj = adjList[ele];

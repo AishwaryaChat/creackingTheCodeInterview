@@ -9,29 +9,29 @@ function cloneObject(obj) {
   });
   return newObj;
 }
+
+const defaultHeap = {
+  heap: [],
+  comparator: (a, b) => a < b,
+};
 class Heap {
-  constructor({ heap = [], comparator }) {
+  constructor({ heap = [], comparator = (a, b) => a < b } = defaultHeap) {
     this._heap = heap;
     this.comparator = comparator;
     this.dataType;
   }
-
+  // Math.floor((parentIndex - 1) / 2)
+  parent = (i) => ((i + 1) >>> 1) - 1;
+  // let LCI = 2 * i + 1;
+  left = (i) => (i << 1) + 1;
+  // let RCI = 2 * i + 2;
+  right = (i) => (i + 1) << 1;
   getSize() {
     return this._heap.length;
   }
 
   peek() {
     return this._heap[0];
-  }
-
-  getDataValue(index) {
-    if (index >= 0 && index < this.getSize()) {
-      let value = this._heap[index];
-      if (this.dataType === "object") {
-        value = value.value;
-      }
-      return value;
-    }
   }
 
   swap(index1, index2) {
@@ -47,15 +47,15 @@ class Heap {
   }
 
   bottomUpHeapify(index, parentIndex) {
-    const dataAtIndex = this.getDataValue(index);
-    const dataAtParent = this.getDataValue(parentIndex);
     if (
-      dataAtIndex &&
-      dataAtParent &&
-      this.comparator(dataAtIndex, dataAtParent)
+      index >= 0 &&
+      index < this.getSize() &&
+      parentIndex >= 0 &&
+      parentIndex < this.getSize() &&
+      this.comparator(this._heap[index], this._heap[parentIndex])
     ) {
       this.swap(index, parentIndex);
-      const newParentIndex = Math.floor((parentIndex - 1) / 2);
+      const newParentIndex = this.parent(parentIndex);
       this.bottomUpHeapify(parentIndex, newParentIndex);
     }
   }
@@ -66,10 +66,8 @@ class Heap {
 
   push(data) {
     if (Array.isArray(data)) throw new Error("Array types not allowed");
-    let value = data;
     if (this.dataType || typeof data === "object") {
       this.setType("object");
-      value = data.value;
     }
     this._heap.push(data);
     let dataIndex = this._heap.length - 1;
@@ -80,18 +78,22 @@ class Heap {
 
   topDownheapify(N, i) {
     let highestOrSmallest = i;
-    let LCI = 2 * i + 1;
-    let RCI = 2 * i + 2;
-    const LCIValue = this.getDataValue(LCI);
-    const RCIValue = this.getDataValue(RCI);
+    let LCI = this.left(i);
+    let RCI = this.right(i);
     if (
-      LCIValue &&
-      this.comparator(LCIValue, this.getDataValue(highestOrSmallest))
+      LCI >= 0 &&
+      LCI < this.getSize() &&
+      highestOrSmallest >= 0 &&
+      highestOrSmallest < this.getSize() &&
+      this.comparator(this._heap[LCI], this._heap[highestOrSmallest])
     )
       highestOrSmallest = LCI;
     if (
-      RCIValue &&
-      this.comparator(RCIValue, this.getDataValue(highestOrSmallest))
+      RCI >= 0 &&
+      RCI < this.getSize() &&
+      highestOrSmallest >= 0 &&
+      highestOrSmallest < this.getSize() &&
+      this.comparator(this._heap[RCI], this._heap[highestOrSmallest])
     )
       highestOrSmallest = RCI;
     if (highestOrSmallest !== i && i >= 0 && highestOrSmallest >= 0) {
