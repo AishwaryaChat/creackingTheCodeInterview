@@ -75,8 +75,8 @@ Explanation 2:
 // TC = O(NlogN)
 // SC = O(N)
 
-const { Heap: MinHeap } = require("../minheapImplementation");
-const { Heap: MaxHeap } = require("../maxheapImplementation");
+const { Heap: MinHeap } = require("../../minheapImplementation");
+const { Heap: MaxHeap } = require("../../maxheapImplementation");
 
 function solve(A) {
   const res = [];

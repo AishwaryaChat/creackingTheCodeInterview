@@ -117,7 +117,7 @@ class Heap {
     const data = this._heap[N - 1];
     this._heap[0] = data;
     this._heap.pop();
-    this.topDownheapify(N, 0);
+    this.topDownheapify(this.getSize(), 0);
     return removed;
   }
   getHeap() {

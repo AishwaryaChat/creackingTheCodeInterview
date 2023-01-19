@@ -64,8 +64,8 @@ Explanation 2:
 
 */
 
-const { Heap } = require("../maxheapImplementation");
-const { Heap: MinHeap } = require("../minheapImplementation");
+const { Heap } = require("../../maxheapImplementation");
+const { Heap: MinHeap } = require("../../minheapImplementation");
 
 // the below function has TC - O(NlogN)
 // This is heap sort, not using B, so increasing complexity

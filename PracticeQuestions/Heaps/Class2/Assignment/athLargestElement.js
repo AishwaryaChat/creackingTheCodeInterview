@@ -66,7 +66,7 @@ Explanation 2:
  So, output array is [-1, 15, 20, 20].
 */
 
-const { Heap } = require("../minHeapImplementation");
+const { Heap } = require("../../minHeapImplementation");
 function solve(A, B) {
   let heap = new Heap();
   let res = [];
