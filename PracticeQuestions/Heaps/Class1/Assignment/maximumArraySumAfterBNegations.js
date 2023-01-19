@@ -55,7 +55,7 @@ Explanation 2:
  Final array after B modifications = [57, -3, 14, 87, 42, 38, 31, 7, 28, 61]
 */
 
-const { Heap } = require("../minheapImplementation");
+const { Heap } = require("../../minheapImplementation");
 
 function solve(A, B) {
   let heap = new Heap();

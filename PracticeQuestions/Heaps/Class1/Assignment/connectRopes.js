@@ -75,7 +75,7 @@ Explanation 2:
 // Then until the heap has length more than 1, we will keep deleting the root of the heap since it is the smallest element
 // Like this we will get First 2 minimum elements, add them and put this result back in the heap in its correct position
 
-const { Heap } = require("../minheapImplementation");
+const { Heap } = require("../../minheapImplementation");
 
 function solve(A) {
   let heap = new Heap();

@@ -66,7 +66,7 @@ Explanation 2:
 // Where A is k in the code
 // A is the time given
 
-const { insert, deleteMax } = require("../maxheapImplementation");
+const { insert, deleteMax } = require("../../maxheapImplementation");
 
 function solve(A, k) {
   const MOD = Math.pow(10, 9) + 7;

@@ -68,7 +68,7 @@ Explanation 2:
 // TC = O(N log N)
 // Concept is to create a maxHeap on the go, get the top max elements from the heap, calculate the multiplication and put the elements back in the heap
 
-const { Heap } = require("../maxheapImplementation");
+const { Heap } = require("../../maxheapImplementation");
 
 function solve(A) {
   let result = [];
