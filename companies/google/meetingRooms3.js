@@ -65,7 +65,7 @@ function findMaxOccupancyRoom(roomOccupancy) {
     }
     maxOccupancyRoom = tempRoom;
   }
-  return maxOccupancyRoom
+  return maxOccupancyRoom;
 }
 
 function solve(rooms, meetings) {
@@ -104,6 +104,7 @@ function solve(rooms, meetings) {
   return findMaxOccupancyRoom(roomOccupancy);
 }
 
+
 // const n = 3;
 // const meetings = [
 //   [1, 20],
@@ -121,21 +122,23 @@ function solve(rooms, meetings) {
 //   [4, 9],
 //   [6, 8],
 // ];
-const n = 4;
+// const n = 4;
+// const meetings = [
+//   [18, 19],
+//   [3, 12],
+//   [17, 19],
+//   [2, 13],
+//   [7, 10],
+// ];
+
+const n = 2;
 const meetings = [
-  [18, 19],
-  [3, 12],
-  [17, 19],
-  [2, 13],
-  [7, 10],
+  [0, 10],
+  [1, 5],
+  [2, 7],
+  [3, 4],
 ];
 
-// const n = 2;
-// const meetings = [
-//   [0, 10],
-//   [1, 5],
-//   [2, 7],
-//   [3, 4],
-// ];
+
 
 console.log(solve(n, meetings));

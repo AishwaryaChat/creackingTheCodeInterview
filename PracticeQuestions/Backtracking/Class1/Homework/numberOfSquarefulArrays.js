@@ -61,19 +61,15 @@ function findPermutations(A, frq, pos, res) {
   for (let i = 0; i < keys.length; i++) {
     const freq = frq[keys[i]];
     if (freq === 0) continue;
-
     frq[keys[i]]--;
     res.push(Number(keys[i]));
     if (check(res)) {
       findPermutations(A, frq, pos + 1, res);
-      res.pop();
-      frq[keys[i]]++;
-    } else {
-      res.pop();
-      frq[keys[i]]++;
-      findPermutations(A, frq, pos + 1, res);
     }
+    res.pop();
+    frq[keys[i]]++;
   }
+  return;
 }
 
 function solve(A) {
@@ -86,6 +82,7 @@ function solve(A) {
   return finalAns;
 }
 
-// const A = [1, 17, 8];
+// const A = [1, 17, 7, 4, 3, 10, ];
 const A = [2, 2, 2, 2, 2];
+// const A = [ 783000521, 766639918, 195102639, 230793946, 757604720, 77842679, 674858911, 496636809, 855231289 ]
 console.log(solve(A));
