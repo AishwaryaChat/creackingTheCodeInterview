@@ -1,13 +1,35 @@
+const cloneArray = (arr) => {
+  const newArr = [];
+  arr.forEach((ele) => {
+    if (Array.isArray(ele)) {
+      newArr.push(cloneArray(ele));
+    } else if (typeof ele === "object") {
+      newArr.push(cloneObject(ele));
+    } else {
+      newArr.push(ele);
+    }
+  });
+  return newArr;
+};
+
 function cloneObject(obj) {
   let newObj = {};
   Object.keys(obj).forEach((key) => {
-    if (typeof obj[key] === "object") {
+    if (Array.isArray(obj[key])) {
+      newObj[key] = cloneArray(newObj[key]);
+    } else if (typeof obj[key] === "object") {
       newObj[key] = cloneObject(obj[key]);
     } else {
       newObj[key] = obj[key];
     }
   });
   return newObj;
+}
+
+function cloneValue(val) {
+  if (Array.isArray(val)) return cloneArray(val);
+  else if (typeof obj === "object") return cloneObject(val);
+  return val;
 }
 
 const defaultHeap = {
@@ -18,7 +40,6 @@ class Heap {
   constructor({ heap = [], comparator = (a, b) => a < b } = defaultHeap) {
     this._heap = heap;
     this.comparator = comparator;
-    this.dataType;
   }
   // Math.floor((parentIndex - 1) / 2)
   parent = (i) => ((i + 1) >>> 1) - 1;
@@ -37,13 +58,8 @@ class Heap {
   swap(index1, index2) {
     const index1Value = this._heap[index1];
     const index2Value = this._heap[index2];
-    if (this.dataType === "object") {
-      this._heap[index2] = cloneObject(index1Value);
-      this._heap[index1] = cloneObject(index2Value);
-    } else {
-      this._heap[index1] = index2Value;
-      this._heap[index2] = index1Value;
-    }
+    this._heap[index2] = cloneValue(index1Value);
+    this._heap[index1] = cloneValue(index2Value);
   }
 
   bottomUpHeapify(index, parentIndex) {
@@ -60,15 +76,7 @@ class Heap {
     }
   }
 
-  setType(type) {
-    this.dataType = type;
-  }
-
   push(data) {
-    if (Array.isArray(data)) throw new Error("Array types not allowed");
-    if (this.dataType || typeof data === "object") {
-      this.setType("object");
-    }
     this._heap.push(data);
     let dataIndex = this._heap.length - 1;
     let parentIndex = Math.floor((dataIndex - 1) / 2);
@@ -82,17 +90,17 @@ class Heap {
     let RCI = this.right(i);
     if (
       LCI >= 0 &&
-      LCI < this.getSize() &&
+      LCI < N &&
       highestOrSmallest >= 0 &&
-      highestOrSmallest < this.getSize() &&
+      highestOrSmallest < N &&
       this.comparator(this._heap[LCI], this._heap[highestOrSmallest])
     )
       highestOrSmallest = LCI;
     if (
       RCI >= 0 &&
-      RCI < this.getSize() &&
+      RCI < N &&
       highestOrSmallest >= 0 &&
-      highestOrSmallest < this.getSize() &&
+      highestOrSmallest < N &&
       this.comparator(this._heap[RCI], this._heap[highestOrSmallest])
     )
       highestOrSmallest = RCI;
@@ -103,9 +111,9 @@ class Heap {
   }
 
   pop() {
-    if (!this.getSize()) throw new Error("Can not delete, Heap is empty");
-    const removed = this._heap[0];
     const N = this.getSize();
+    if (!N) throw new Error("Can not delete, Heap is empty");
+    const removed = this._heap[0];
     const data = this._heap[N - 1];
     this._heap[0] = data;
     this._heap.pop();
