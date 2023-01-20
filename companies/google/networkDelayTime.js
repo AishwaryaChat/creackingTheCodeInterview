@@ -31,7 +31,7 @@
 // 0 <= wi <= 100
 // All the pairs (ui, vi) are unique. (i.e., no multiple edges.)
 
-const MinHeap = require("../../../PracticeQuestions/Heaps/heapGeneralisedImplementation");
+const MinHeap = require("../../PracticeQuestions/Heaps/heapGeneralisedImplementation");
 
 function getAdjacencyList(A, B) {
   let list = {};

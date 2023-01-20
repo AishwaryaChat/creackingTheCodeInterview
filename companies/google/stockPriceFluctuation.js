@@ -50,7 +50,7 @@
 
 // TC - O(NlogN)
 // SC - O(N)
-const Heap = require("../../../../PracticeQuestions/Heaps/heapGeneralisedImplementation");
+const Heap = require("../../PracticeQuestions/Heaps/heapGeneralisedImplementation");
 
 var StockPrice = function () {
   const MaxN = Math.pow(10, 5);

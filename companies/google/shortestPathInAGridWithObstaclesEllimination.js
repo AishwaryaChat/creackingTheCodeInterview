@@ -33,7 +33,7 @@
 // grid[i][j] is either 0 or 1.
 // grid[0][0] == grid[m - 1][n - 1] == 0
 
-const Queue = require("../../../../PracticeQuestions/Queues/arrayImpelemtation");
+const Queue = require("../../PracticeQuestions/Queues/arrayImpelemtation");
 
 // We will apply bread-first-search but while maintining the visited state, we will have to maintain state with value of k as well, and in the queue we will push the number of steps taken with each move
 // TC - O(M*N*K)
