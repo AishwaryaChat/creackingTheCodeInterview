@@ -61,7 +61,7 @@ Explanation 2:
 // TC = O(N * Length of words)
 // TC = O(N * Length of words)
 
-const { insert, Node } = require("./implementationUsingArray");
+const { insert, Node } = require("../../implementationUsingArray");
 
 function solve(A) {
   let root = new Node();

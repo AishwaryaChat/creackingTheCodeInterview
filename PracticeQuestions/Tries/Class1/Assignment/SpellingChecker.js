@@ -68,7 +68,7 @@ None of the words are present in the dictionary.
 // TC = O(N*Length of words in B)
 // SC = O(N*Length of words in A)
 
-const { search, insert } = require("./implementationUsingArray");
+const { search, insert } = require("../../implementationUsingArray");
 
 class Node {
   constructor(maxLength = 26) {
