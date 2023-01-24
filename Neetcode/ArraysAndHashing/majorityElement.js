@@ -43,8 +43,36 @@ function solveAnother(nums) {
   return nums[Math.floor(nums.length / 2)];
 }
 
-const nums = [3, 2, 3];
+// TC - O(N)
+// SC - O(1)
+// The below solution is based on Boyer-Moore Voting Algorithm
+// The idea is to cancel out the elements with the majority element and at the end you will find the majority element
+// select first number as majority element and make count=1
+// If next element is equal to current majority element, increment count
+// As soon as you find the next element not equal to current major element decrement count
+// And check if count has become 0
+// if count has become zero, change majority element to current element and count=1
+// Continue above steps till you rech end of array
+// At the end current majority element will be your answer
+// https://www.youtube.com/watch?v=n5QY3x_GNDg
+// Here is the reference to find a great explanation
+// This is something great that I learned today, it's pretty intutive.
+function solveOptimised(nums) {
+  let count = 1;
+  let me = nums[0];
+  for (let i = 1; i < nums.length; i++) {
+    if (nums[i] === me) count++;
+    else count--;
+    if (count === 0) {
+      me = nums[i];
+      count = 1
+    }
+  }
+  return me;
+}
 
-// const nums = [2,2,1,1,1,2,2]
+// const nums = [3, 2, 3];
 
-console.log(solve(nums));
+const nums = [2,2,1,1,1,2,2]
+
+console.log(solveOptimised(nums));
