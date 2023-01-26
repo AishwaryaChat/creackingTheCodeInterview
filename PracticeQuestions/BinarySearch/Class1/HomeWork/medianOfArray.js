@@ -68,15 +68,15 @@ Explanation 2:
 
 function solve(A, B) {
   if (A.length > B.length) {
-    return solve(B, A)
+    return solve(B, A);
   }
   let n = A.length;
   let m = B.length;
   let low = 0;
   let high = n;
   while (low <= high) {
-    const cut1 = Math.floor((low + high) / 2); // calculating cut1
-    const cut2 =  Math.floor((n+m) / 2) - cut1;
+    const cut1 = Math.floor((low + high) / 2); // number of items taken in left half from Array A
+    const cut2 = Math.floor((n + m) / 2) - cut1; //  the array has to be halfed in two parts to calculate the median, so the first half will have total number of elements equal to (n+m)/2, we are deducting cut1 from it, so that we get rest of the elements from B
     const l1 = cut1 === 0 ? Number.MIN_SAFE_INTEGER : A[cut1 - 1];
     const l2 = cut2 === 0 ? Number.MIN_SAFE_INTEGER : B[cut2 - 1];
     const r1 = cut1 < n ? A[cut1] : Number.MAX_SAFE_INTEGER;
@@ -102,7 +102,14 @@ function solve(A, B) {
 // const A = [0, 23];
 // const B = [];
 
-const A = [1, 5, 8, 10, 18, 20];
-const B = [2, 3, 6, 7];
+// const A = [1, 5, 8, 10, 18, 20];
+// const B = [2, 3, 6, 7];
 // 1 2 3 5 6 7 8 10 18 20
+
+// const A = [ -50, -41, -40, -19, 5, 21, 28 ]
+// const B = [ -50, -21, -10 ]
+
+const A = [];
+const B = [20];
+
 console.log(solve(A, B));
