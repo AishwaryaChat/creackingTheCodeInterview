@@ -85,12 +85,11 @@ function solve(root) {
   let ans = [];
   let last = root;
   let ans1 = [];
-  let prev = root
+  let prev = root;
   while (!queue.isEmpty()) {
-    
     let ele = queue.dequeue();
-    if(ele.left || ele.right) {
-        prev = ele
+    if (ele.left || ele.right) {
+      prev = ele;
     }
     ans1.push(ele.data);
     if (last.data == ele.data) {
@@ -99,7 +98,7 @@ function solve(root) {
       } else if (ele.left) {
         last = ele.left;
       } else {
-          last = prev.right || prev.left
+        last = prev.right || prev.left;
       }
       ans.push(ans1);
       ans1 = [];
@@ -114,6 +113,26 @@ function solve(root) {
   return ans;
 }
 
+function simpleSolution(root) {
+  let queue = new Queue({});
+  queue.enqueue(root);
+  let ans = [];
+  let last = root;
+  let ans1 = [];
+  while (!queue.isEmpty()) {
+    let ele = queue.dequeue();
+    ans1.push(ele.data);
+    if (ele.left) queue.enqueue(ele.left);
+    if (ele.right) queue.enqueue(ele.right);
+    if (ele === last) {
+      ans.push(ans1);
+      ans1 = [];
+      last = queue.rearElement();
+    }
+  }
+  return ans;
+}
+
 // const N1RightLeft = new TreeNode(3);
 // const N1Right = new TreeNode(2, N1RightLeft);
 // const N1Left = new TreeNode(6);
@@ -121,8 +140,8 @@ function solve(root) {
 
 // console.log(solve(N1));
 
-const N18 = new TreeNode(18)
-const N17 = new TreeNode(17)
+const N18 = new TreeNode(18);
+const N17 = new TreeNode(17);
 const N16 = new TreeNode(16, N17, N18);
 const N15 = new TreeNode(15);
 const N14 = new TreeNode(14, N16);
