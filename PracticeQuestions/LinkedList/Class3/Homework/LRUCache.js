@@ -58,7 +58,7 @@ class DLL {
       this.head = null;
       this.tail = null;
     } else {
-      this.head.previous = null;
+      this.head.next.previous = null;
       this.head = this.head.next;
       deleted.next = null;
     }
@@ -132,7 +132,6 @@ function LRUCache(capacity) {
   return {
     // get function returns an integer
     get: function (key) {
-      // console.log("cachedmap", then.cacheMap)
       let existingNode = then.cacheMap[key];
       if (existingNode !== undefined) {
         const newNode = new Node(key, existingNode.data);
@@ -180,9 +179,7 @@ function execute(capacity, operations) {
     const [op, key, value] = operations[i];
     if (op === G) {
       const val = LRU.get(key);
-      console.log("getting", key, "value", val);
     } else {
-      console.log("adding", key);
       LRU.set(key, value);
     }
   }
