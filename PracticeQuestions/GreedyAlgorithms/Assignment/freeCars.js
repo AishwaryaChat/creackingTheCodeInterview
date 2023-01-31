@@ -71,7 +71,7 @@ Explanation 2:
 
 */
 
-const Heap = require("../Heaps/heapGeneralisedImplementation");
+const Heap = require("../../Heaps/heapGeneralisedImplementation");
 
 // TC - O(NlogN)
 function solve(A, B) {

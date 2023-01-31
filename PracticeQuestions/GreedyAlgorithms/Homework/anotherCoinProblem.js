@@ -60,7 +60,6 @@ function iterative(A) {
   dp[0] = 0;
   for (let i = 1; i <= A; i++) {
     dp[i] = i;
-    let pow = Math.pow(5, 0);
     for (let j = 1; j <= i; j *= 5) {
       dp[i] = Math.min(dp[i], 1 + dp[i - j]);
     }
