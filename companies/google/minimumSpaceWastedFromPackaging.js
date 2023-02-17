@@ -67,6 +67,61 @@ function solve(packages, boxes) {
     : minimumSpaceWasted;
 }
 
+function getIndexOfLargestFittingPackage(packages, boxSize) {
+  let low = 0;
+  let high = packages.length - 1;
+  while (low < high) {
+    const mid = Math.ceil((high + low) / 2);
+    if (packages[mid] <= boxSize) {
+      low = mid;
+    } else {
+      high = mid - 1;
+    }
+  }
+  return low;
+}
+
+// TC - O(PlogP + N*((M logM)+ (MlogP))), 
+// where P is length of packages
+// N is number of box suppliers,
+// 
+// M is number of boxes for a supplier
+
+// In below solution we are finding the most appropriate box for a set of packages, and calculating the space wasted for that set of packages with the selected box, we keep adding the total wasted space and at the end we check if current wasted space is less than previous one, so we replace the answer
+
+function solveOptimized(packages, boxSuppliers) {
+  packages.sort((a, b) => a - b);
+  let acc = 0;
+  const packagesPrefixSum = packages.map((e) => {
+    acc += e;
+    return acc;
+  });
+  let minimumSpaceWasted = Number.MAX_SAFE_INTEGER;
+  for (let boxes of boxSuppliers) {
+    boxes.sort((a, b) => a - b);
+    if (boxes[boxes.length - 1] < packages[packages.length - 1]) continue;
+    let lastUsedIndex = -1;
+    let totalWastedSpace = 0;
+    for (boxSize of boxes) {
+      const largestPackageIndex = getIndexOfLargestFittingPackage(
+        packages,
+        boxSize
+      );
+      const numPackagesToBox = largestPackageIndex - lastUsedIndex;
+      if (numPackagesToBox === 0) continue;
+      const lastPrefixSum =
+        lastUsedIndex === -1 ? 0 : packagesPrefixSum[lastUsedIndex];
+      const spaceWasted =
+        numPackagesToBox * boxSize -
+        (packagesPrefixSum[largestPackageIndex] - lastPrefixSum);
+      totalWastedSpace += spaceWasted;
+      lastUsedIndex = largestPackageIndex;
+    }
+    minimumSpaceWasted = Math.min(minimumSpaceWasted, totalWastedSpace);
+  }
+  return minimumSpaceWasted;
+}
+
 // const packages = [2, 3, 5];
 // const boxes = [
 //   [4, 8],
@@ -82,4 +137,7 @@ const packages = [3, 5, 8, 10, 11, 12];
 const boxes = [[12], [11, 9], [10, 5, 14]];
 // Output: 9
 
-console.log(solve(packages, boxes));
+console.log(solveOptimized(packages, boxes));
+// packages[(3, 5, 8, 10, 11, 12)];
+// packagesPrefixSum[(3, 8, 16, 26, 37, 49)];
+// boxes = [5, 10, 14];
