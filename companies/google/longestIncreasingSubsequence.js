@@ -62,8 +62,8 @@ function recursive(pos, A, DP) {
 
 function solveRecursive(A) {
   const DP = new Array(A.length).fill(0);
-  for(let i = A.length-1; i>=0; i--) {
-      recursive(i, A, DP);
+  for (let i = A.length - 1; i >= 0; i--) {
+    recursive(i, A, DP);
   }
   const max = Math.max(...DP);
   return max === 0 ? 1 : max;
@@ -75,54 +75,53 @@ function solveRecursive(A) {
 // The idea here is to keep adding elements to subSequence, if the element is greater than last element of sub sequence, if element is smaller than last element of subsequence then search for the first element in the subsequence which is greater than this element and replace.
 // In the binary search solution rather than finding this element using linear search we have used binary search because the elements of subsequence are sorted
 function solveUsingLinearSearch(A) {
-  let subSequence = []
-  subSequence[0] = A[0]
-  for(let i=1;i<A.length;i++) {
-    const last = subSequence[subSequence.length-1]
-    if(A[i]>last) {
-      subSequence.push(A[i])
+  let subSequence = [];
+  subSequence[0] = A[0];
+  for (let i = 1; i < A.length; i++) {
+    const last = subSequence[subSequence.length - 1];
+    if (A[i] > last) {
+      subSequence.push(A[i]);
     } else {
-      let j=0
-      while(j<subSequence.length && subSequence[j]<A[i]) j++
-      subSequence[j] = A[i]
+      let j = 0;
+      while (j < subSequence.length && subSequence[j] < A[i]) j++;
+      subSequence[j] = A[i];
     }
   }
-  return subSequence.length
+  return subSequence.length;
 }
 
-
 function getJ(subSequence, ele) {
-  let low = 0
-  let high = subSequence.length-1
-  while(low<high) {
-    const mid = low + Math.floor((high-low)/2)
-    if(subSequence[mid]===ele) {
-      return mid
+  let low = 0;
+  let high = subSequence.length - 1;
+  while (low < high) {
+    const mid = low + Math.floor((high - low) / 2);
+    if (subSequence[mid] === ele) {
+      return mid;
     }
-    if(ele>subSequence[mid]) {
-      low = mid+1
+    if (ele > subSequence[mid]) {
+      low = mid + 1;
     } else {
-      high = mid
+      high = mid;
     }
   }
-  return low
+  return low;
 }
 
 // TC - O(NlogN)
 // Sc - O(N)
 function solveUsingBinarySearch(A) {
-  let subSequence = []
-  subSequence[0] = A[0]
-  for(let i=1;i<A.length;i++) {
-    const last = subSequence[subSequence.length-1]
-    if(A[i]>last) {
-      subSequence.push(A[i])
+  let subSequence = [];
+  subSequence[0] = A[0];
+  for (let i = 1; i < A.length; i++) {
+    const last = subSequence[subSequence.length - 1];
+    if (A[i] > last) {
+      subSequence.push(A[i]);
     } else {
-      let j=getJ(subSequence, A[i])
-      subSequence[j] = A[i]
+      let j = getJ(subSequence, A[i]);
+      subSequence[j] = A[i];
     }
   }
-  return subSequence.length
+  return subSequence.length;
 }
 
 // const A = [10, 9, 2, 5, 3, 7, 101, 18];
@@ -134,5 +133,5 @@ function solveUsingBinarySearch(A) {
 
 // const A = [10,9,2,5,3,7,101,18]
 // const A = [1, 3, 6, 7, 9, 4, 10, 5, 6];
-const A = [3,5,6,2,5,4,19,5,6,7,12]
+const A = [3, 5, 6, 2, 5, 4, 19, 5, 6, 7, 12];
 console.log(solveUsingBinarySearch(A));
