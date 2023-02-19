@@ -79,7 +79,8 @@ var solve = function (grid) {
       }
     }
   }
-
+  const cx = [0, 0, -1, 1]
+  const cy = [1, -1, 0, 0]
   const visited = new Set();
   let queue = new Queue();
   queue.enqueue([...people, ...box, 0]);
@@ -93,9 +94,9 @@ var solve = function (grid) {
     if (visited.has(curKey)) continue;
     visited.add(curKey);
 
-    for (let i = 0; i < 4; i++) {
-      const pX1 = bX + dirs[i];
-      const pY1 = bY + dirs[i + 1];
+    for (let i = 0; i < cx.length; i++) {
+      const pX1 = bX + cx[i];
+      const pY1 = bY + cy[i];
       if (
         pX1 < 0 ||
         pX1 >= rows ||
@@ -106,8 +107,8 @@ var solve = function (grid) {
         continue;
       }
 
-      const bX1 = bX - dirs[i];
-      const bY1 = bY - dirs[i + 1];
+      const bX1 = bX - cx[i];
+      const bY1 = bY - cy[i];
       if (
         bX1 < 0 ||
         bX1 >= rows ||

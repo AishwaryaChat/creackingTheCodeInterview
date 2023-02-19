@@ -5,7 +5,7 @@ function countCows(A, minDist) {
     let dist = A[i] - c1;
     if (dist >= minDist) {
       countOfCows++;
-      c1 = A[i];
+      c1 = A[i]
     }
   }
   return countOfCows;
