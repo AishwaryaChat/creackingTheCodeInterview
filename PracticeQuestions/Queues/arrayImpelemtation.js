@@ -1,5 +1,5 @@
 class Queue {
-  constructor({ maxLength = 1000000 } = {}) {
+  constructor({ maxLength = 100000000 } = {}) {
     this.queue = [];
     this.front = 0;
     this.rear = -1;
@@ -9,6 +9,8 @@ class Queue {
   enqueue(x) {
     if (this.rear + 1 < this.maxLength) {
       this.queue[++this.rear] = x;
+    } else {
+      console.log("full")
     }
   }
 
