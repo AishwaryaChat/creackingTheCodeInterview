@@ -43,38 +43,28 @@
 // You should know about https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/atan2
 // TC - O(N + NlogN) - N for the sliding window and NlogN for sorting
 function solve(points, angle, currentLocation) {
-  let maxCount = -1;
   let pointsDegree = [];
-  const [sx, sy] = currentLocation
+  const [sx, sy] = currentLocation;
   let self = 0;
-  for (let i = 0; i < points.length; i++) {
-    const [x, y] = points[i];
-    if (x === sx && y === sy) {
-      self++;
-      continue;
+  for ([x, y] of points) {
+    if (x === sx && y === sy) self++;
+    else {
+      const deg = Math.atan2(x - sx, y - sy) * (180 / Math.PI);
+      pointsDegree.push(deg);
     }
-    const deg = Math.atan2(sx-x, sy-y) * (180 / Math.PI);
-    pointsDegree.push(deg);
   }
-  pointsDegree = pointsDegree.concat(pointsDegree.map(deg => deg+360))
+  pointsDegree = pointsDegree.concat(pointsDegree.map((deg) => deg + 360));
   pointsDegree.sort((a, b) => a - b);
-    let left = 0,
-    right = 0;
-  while (right < pointsDegree.length) {
-    // checking if current point and starting point are in same view of angle
-    if (pointsDegree[right] - pointsDegree[left] <= angle) {
-      if (maxCount < right - left + 1) {
-        maxCount = right - left + 1;
-      }
-      right++;
-      continue;
+  let l = 0,
+    r = 0;
+  let maxCount = 0;
+  while (r < pointsDegree.length) {
+    // moving l pointer forwards until right and left points comes under same view of angle
+    while (l <= r && pointsDegree[r] - pointsDegree[l] > angle) {
+      l++;
     }
-    // moving left pointer forwards until right and left points comes under same view of angle
-    while (left <= right) {
-      if (points[right] - points[left] <= angle) break;
-      left++;
-    }
-    right++;
+    maxCount = Math.max(maxCount, r - l + 1);
+    r++;
   }
   return maxCount + self;
 }
@@ -91,7 +81,38 @@ function solve(points, angle, currentLocation) {
 // const points = [[2,1],[2,2],[3,4],[1,1]], angle = 90, location = [1,1]
 // Output: 4
 
-const points = [[1,0],[2,1]], angle = 13, location = [1,1]
+// const points = [[1,0],[2,1]], angle = 13, location = [1,1]
 // Output: 1
 
+// const points = [
+//   [34, 26],
+//   [35, 95],
+//   [31, 56],
+//   [84, 75],
+//   [26, 76],
+//   [22, 15],
+//   [26, 78],
+//   [90, 41],
+//   [94, 18],
+//   [12, 88],
+//   [42, 82],
+//   [27, 0],
+//   [85, 49],
+//   [69, 71],
+//   [13, 36],
+//   [59, 58],
+//   [58, 18],
+//   [21, 62],
+// ];
+// const angle = 15;
+// const location = [67, 91];
+// Output: 4
+
+const points = [
+  [1, 1],
+  [1, 1],
+  [1, 1],
+];
+const angle = 1;
+const location = [1, 1];
 console.log(solve(points, angle, location));
