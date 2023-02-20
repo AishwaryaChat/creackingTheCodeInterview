@@ -54,6 +54,7 @@ function singleNumber3(A) {
   for (let i = 0; i < A.length; i++) {
     xor ^= A[i];
   }
+  //   This will give the se bit in xor, and based on that we will seperate out the input
   const b = xor ^ (xor & (xor - 1));
   for (let i = 0; i < A.length; i++) {
     if ((A[i] & b) === 0) {
@@ -63,7 +64,8 @@ function singleNumber3(A) {
   return [x, y];
 }
 
-// TC - O((log A[i]) * N)
+// TC - O((log A[i]) + N) ~ O(N)
+// SC - O(1)
 function solve(A) {
   let num1 = 0;
   let num2 = 0;
