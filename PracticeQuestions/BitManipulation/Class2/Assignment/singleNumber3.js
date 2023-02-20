@@ -48,21 +48,41 @@ Explanation 2:
 */
 
 function singleNumber3(A) {
-    let xor = 0, x = 0, y = 0
-    for(let i=0; i<A.length; i++) {
-        xor ^= A[i]
-    }
-    const b = xor ^ (xor & (xor-1))
-    for(let i=0; i< A.length; i++) {
-        if((A[i]&b) === 0) {
-            x^=A[i]
-        }
-        else y^=A[i]
-    }
-    return [x, y]
+  let xor = 0,
+    x = 0,
+    y = 0;
+  for (let i = 0; i < A.length; i++) {
+    xor ^= A[i];
+  }
+  const b = xor ^ (xor & (xor - 1));
+  for (let i = 0; i < A.length; i++) {
+    if ((A[i] & b) === 0) {
+      x ^= A[i];
+    } else y ^= A[i];
+  }
+  return [x, y];
 }
 
-const A = [1, 2, 3, 1, 2, 4]
-// const A = [2, 3, 2, 5, 3, 6, 7, 6]
+// TC - O((log A[i]) * N)
+function solve(A) {
+  let num1 = 0;
+  let num2 = 0;
+  for (let b = 0; b < 32; b++) {
+    let count = 0;
+    for (let i = 0; i < A.length; i++) {
+      count += (A[i] >> b) & 1;
+    }
+    if (count % 2 === 1) {
+      for (let i = 0; i < A.length; i++) {
+        if ((A[i] >> b) & 1) num1 ^= A[i];
+        else num2 ^= A[i];
+      }
+      return [num1, num2];
+    }
+  }
+}
 
-console.log(singleNumber3(A))
+// const A = [1, 2, 3, 1, 2, 4]
+const A = [2, 3, 2, 5, 3, 6, 7, 6];
+
+console.log(solve(A));
