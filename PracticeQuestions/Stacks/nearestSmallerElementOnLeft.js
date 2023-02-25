@@ -74,32 +74,21 @@ index 3: No element less than 1 in left of 1, G[3] = -1
 // If element at index is greater than current element then that index will never be the answer rather current index will be the potential answer for any other element
 // So pop this index from stack
 
-const Stack = require("./stack")
+const Stack = require("./stack");
 
 function solve(A) {
-  // let s = new Stack();
-  // let SL = []
-  // const n = A.length
-  // for (let i = n - 1; i >= 0; i--) {
-  //   while (!s.empty() && A[s.peak()] > A[i]) {
-  //     SL[s.peak()] = i;
-  //     s.pop();
-  //   }
-  //   s.push(i);
-  // }
-  // return SL;
   let ans = [];
   let st = new Stack();
   for (let i = 0; i < A.length; i++) {
-      while(!st.isEmpty() && A[st.peak()] >= A[i]) st.pop()
-      if(st.isEmpty()) ans.push(-1)
-      else ans.push(A[st.peak()])
-      st.push(i)
+    while (!st.isEmpty() && A[st.peak()] >= A[i]) st.pop();
+    if (st.isEmpty()) ans.push(-1);
+    else ans.push(st.peak());
+    st.push(i);
   }
-  return ans
+  return ans;
 }
 
 const A = [4, 5, 2, 10, 8];
 // console.log(solve(A));
 
-module.exports = solve
+module.exports = solve;
