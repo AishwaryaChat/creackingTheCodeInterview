@@ -63,20 +63,11 @@ function solveOptimised(A) {
   const nearestSmallerRight = NearestSmallerOnRight(A);
   let area = 0;
   for (let i = 0; i < A.length; i++) {
-    const nearestSmallerLeftElement =
-      nearestSmallerLeft[i] === -1 ? A[i] : A[nearestSmallerLeft[i] + 1];
-    const nearestSmallerRightElement =
-      nearestSmallerRight[i] === -1 ? A[i] : A[nearestSmallerRight[i] - 1];
     const leftindex =
       nearestSmallerLeft[i] === -1 ? 0 : nearestSmallerLeft[i] + 1;
     const rightIndex =
       nearestSmallerRight[i] === -1 ? A.length - 1 : nearestSmallerRight[i] - 1;
-    const height = Math.min(
-      nearestSmallerLeftElement,
-      nearestSmallerRightElement,
-      A[i]
-    );
-    let newArea = height * (rightIndex - leftindex + 1);
+    let newArea = A[i] * (rightIndex - leftindex + 1);
     area = Math.max(area, newArea);
   }
   return area;
