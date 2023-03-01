@@ -36,7 +36,7 @@ class FindUnionByRank {
   init() {
     let parent = [];
     let rank = [];
-    for (let i = 0; i < n; i++) {
+    for (let i = 0; i < this.n; i++) {
       parent[i] = i;
       rank[i] = 0;
     }
@@ -68,20 +68,10 @@ class FindUnionByRank {
 // SC - O(N) - number of nodes in graph
 function solve(n, edges) {
   const union = new FindUnionByRank(n);
-  let ans = 0;
+  let ans = n;
   for (let i = 0; i < edges.length; i++) {
     const [n1, n2] = edges[i];
-    union.union(n1, n2);
-  }
-  for (let i = 0; i < n; i++) {
-    union.findParent(i);
-  }
-  let map = {};
-  for (let i = 0; i < union.parent.length; i++) {
-    if (map[union.parent[i]] === undefined) {
-      ans += 1;
-      map[union.parent[i]] = true;
-    }
+    if(union.union(n1, n2)) ans-=1
   }
   return ans;
 }
@@ -142,7 +132,11 @@ function solveDFS(n, edges) {
 // ];
 // Output: 1
 
-const n =4
-const edges =[[0,1],[2,3],[1,2]]
+const n = 4;
+const edges = [
+  [0, 1],
+  [2, 3],
+  [1, 2],
+];
 
 console.log(solve(n, edges));
