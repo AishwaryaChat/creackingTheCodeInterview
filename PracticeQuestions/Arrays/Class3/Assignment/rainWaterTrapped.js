@@ -72,7 +72,33 @@ const trap = (A) => {
   return area;
 };
 
-// const A = [6, 3, 2, 4, 1, 3, 5, 3, 4];
-const A = [ 0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1 ]
+function solveSpaceOptimised(A) {
+  let n = A.length;
+  let left = 0;
+  let right = n - 1;
+  let res = 0;
+  let maxleft = 0;
+  let maxright = 0;
+  while (left <= right) {
+    // When height of left side is lower, calculate height of water trapped in left bin else calculate for right bin
+    if (A[left] <= A[right]) {
+      if (A[left] >= maxleft)
+        //This index wont store any water as there is no index towards the left whose height is greater than this.
+        maxleft = A[left];
+      else res += maxleft - A[left];
+      left++;
+    } else {
+      if (A[right] >= maxright)
+        //This index wont store any water as there is no index towards the right whose height is greater than this.
+        maxright = A[right];
+      else res += maxright - A[right];
+      right--;
+    }
+  }
+  return res;
+}
 
-console.log("Area ", trap(A));
+const A = [6, 3, 2, 4, 1, 3, 5, 3, 4];
+// const A = [0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1];
+
+console.log("Area ", solveSpaceOptimised(A));
