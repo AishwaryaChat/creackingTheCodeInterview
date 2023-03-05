@@ -76,7 +76,7 @@ Next pointers are set as given in the output.
 // SC = O(N)
 // Idea is to follow level order traversal and only point next of last element of any level to null, otherwise point next of current element to the front element of the queue
 
-
+const Queue = require("../../../Queues/arrayImpelemtation");
 class TreeNode {
   constructor(data, left = null, right = null) {
     this.data = data;
@@ -87,34 +87,18 @@ class TreeNode {
 }
 
 function solve(root) {
-  const queue = [];
-  queue.push(root);
+  const queue = new Queue();
+  if (root === null) return root;
+  queue.enqueue(root);
   let last = root;
-  let prev = root;
-  while (queue.length !== 0) {
-    let ele = queue.shift();
-    if (ele.left || ele.right) {
-      prev = ele;
-    }
+  while (!queue.isEmpty()) {
+    let ele = queue.dequeue();
+    if (ele.left) queue.push(ele.left);
+    if (ele.right) queue.push(ele.right);
     if (last == ele) {
-      if (ele.right) {
-        last = ele.right;
-      } else if (ele.left) {
-        last = ele.left;
-      } else {
-        last = prev.right || prev.left;
-      }
+      last = queue.rearElement();
       ele.next = null;
-    } else {
-      let front = queue[0];
-      ele.next = front;
-    }
-    if (ele.left) {
-      queue.push(ele.left);
-    }
-    if (ele.right) {
-      queue.push(ele.right);
-    }
+    } else ele.next = queue.frontElement();
   }
   return root;
 }
