@@ -67,6 +67,33 @@ function solveOptimised(arr) {
   return ans;
 }
 
+// Using count sort
+// TC - O(m+n)
+// SC - O(m+n)
+
+var solveCountSort = function(arr) {
+  let minElement = Math.min(...arr)
+  let maxElement = Math.max(...arr)
+  let shift = -minElement
+  let line = new Array(maxElement - minElement + 1).fill(0)
+  for(let ele of arr) {
+    line[ele + shift] += 1
+  }
+  let minDiff = maxElement - minElement
+  let prev = 0
+  let ans = []
+  for(let curr = 1; curr<=maxElement+shift; curr++) {
+    if(line[curr]===0) continue
+    if(curr - prev === minDiff) ans.push([prev-shift, curr-shift])
+    else if(curr - prev < minDiff) {
+      minDiff = curr - prev
+      ans = [[prev-shift, curr-shift]]
+    }
+    prev = curr
+  }
+  return ans
+};
+
 // const arr = [4, 2, 1, 3];
 // Output: [[1,2],[2,3],[3,4]]
 
