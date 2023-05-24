@@ -88,7 +88,7 @@ function solveOptmised(matrix) {
 function solveSpaceOptmised(matrix) {
   const n = matrix.length;
   const m = matrix[0].length;
-  const dp = new Array(n + 1).fill(0);
+  const dp = new Array(m + 1).fill(0);
   let max = 0;
   let prev = 0;
   for (let i = 1; i <= n; i++) {
@@ -106,18 +106,18 @@ function solveSpaceOptmised(matrix) {
   return max * max;
 }
 
-// const matrix = [
-//   ["1", "0", "1", "0", "0"],
-//   ["1", "0", "1", "1", "1"],
-//   ["1", "1", "1", "1", "1"],
-//   ["1", "0", "0", "1", "0"],
-// ];
+const matrix = [
+  ["1", "0", "1", "0", "0"],
+  ["1", "0", "1", "1", "1"],
+  ["1", "1", "1", "1", "1"],
+  ["1", "0", "0", "1", "0"],
+];
 // Output: 4
 
-const matrix = [
-  ["0", "1"],
-  ["1", "0"],
-];
+// const matrix = [
+//   ["0", "1"],
+//   ["1", "0"],
+// ];
 // Output: 1
 
 // const matrix = [["0"]]
