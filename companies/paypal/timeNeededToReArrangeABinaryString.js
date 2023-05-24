@@ -57,6 +57,36 @@ function solve(s) {
   }
 }
 
+// TC - O(N^2)
+// SC - O(1)
+function solveSimple(s) {
+  let count =  0;
+    while(s.indexOf('01')!=-1){
+      s = s.replaceAll("01", "10")
+        count++;
+    }
+    return count;
+}
+
+// intution - at the end we want the string to look like this - 1111100000, all the ones first then all the zero, according to this the time taken to shift the last one to its correct position should be the answer, we have to see how many zeros are there which are on left of last occurence of one, the answer will be equal to atleast the numbers of zeros to the lesft of last occurance of 1, but not just that for example 011, for second 1 to shift it first have to wait for 1st 1 to shift, so every time we come across 2 consecutive 1's we have to increase waiting time because these 1's cannot be shifting together in one cycle, 
+// similarly And everytime we come acress two consequetive zeroes, the waiting time decreases by one.
+//  ( consider 0 1 1 0 0 1 The waiting time for the first '1' is 0, for the second '1' is 1 , but for the third '1' is again 0, because while the second '1' was waiting, the third '1' would not waste a turn by moving through the zeroes before it.)
+// TC - O(N)
+// SC - O(1)
+function solveOptimised(s) {
+  let waitingTime = 0
+    let zeroCount = 0
+    let lastOccOf1 = s.lastIndexOf("1")
+    for(let i=0; i<=lastOccOf1; i++) {
+        if(i>0 && s[i]==="1" && s[i-1]==="1" && zeroCount>0) 
+            waitingTime+=1
+        if(i>0 && s[i]==="0" && s[i-1]==="0" && waitingTime>0)
+            waitingTime-=1
+        if(s[i]==="0") zeroCount+=1
+    }
+    return  zeroCount + waitingTime
+}
+
 const s = "0110101";
 // Output: 4
 
