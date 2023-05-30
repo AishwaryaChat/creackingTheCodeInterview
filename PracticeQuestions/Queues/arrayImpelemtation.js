@@ -50,6 +50,10 @@ class Queue {
   getQueue() {
     return this.queue;
   }
+
+  getSize() {
+    return this.rear-this.front + 1
+  }
 }
 
 module.exports = Queue;
