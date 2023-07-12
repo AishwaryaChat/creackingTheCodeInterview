@@ -27,6 +27,8 @@
 // 1 <= cost[i] <= 10^6
 // 1 <= time[i] <= 500
 
+// TC - O(n^2)
+// SC - O(n^2)
 function solve(cost, time) {
   const dp = {};
   function findMinCost(pos, paintedCount, timeTaken) {
