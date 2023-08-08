@@ -44,7 +44,20 @@ function solve(nums) {
   findCanJump(nums, 0, dp);
   return dp[nums.length - 1] === undefined ? false : true;
 }
-
+// Optimised
+// We basically have to keep a leftmost index which will eventually be able to jump to the last position. So at any position if it is possible to jump par this leftmost then it is possible to reach last position from this position also
+// TC - O(n)
+function solveOptimised(nums) {
+  const n = nums.length;
+  if (n > 1 && nums[0] === 0) return false;
+  let leftMost = n - 1;
+  for (let i = n - 2; i >= 0; i--) {
+    if (i + nums[i] >= leftMost) {
+      leftMost = i;
+    }
+  }
+  return leftMost === 0;
+}
 const nums = [2, 3, 1, 1, 4];
 // Output: true
 
