@@ -91,8 +91,8 @@ function solve(N, S) {
   return DP[N][S];
 }
 
-const N = 2;
-const S = 3;
+const N = 3;
+const S = 10;
 
 console.log(solve(N, S));
 

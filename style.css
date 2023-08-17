@@ -1,0 +1,18 @@
+div.red.orange {
+    background: blue
+}
+.outer {
+    width: 100%;
+    min-height: 80vh;
+    background-color: red;
+}
+#green {
+    background: green;
+}
+div.red {
+    background: red;
+}
+
+.orange {
+    background: orange;
+}

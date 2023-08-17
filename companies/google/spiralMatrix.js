@@ -1,4 +1,4 @@
-// Spiral Matrix
+n = // Spiral Matrix
 // Medium
 
 // company
