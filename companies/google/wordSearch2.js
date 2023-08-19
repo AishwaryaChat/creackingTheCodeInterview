@@ -32,8 +32,8 @@
 // SC - O(N), total number of letters in trie
 class Node {
   constructor() {
-    this.isEnd = false;
     this.children = {};
+    this.isEnd = false;
   }
 }
 
@@ -42,61 +42,19 @@ class Trie {
     this.root = new Node();
   }
 
-  addWord(word) {
+  insert(word) {
     let curr = this.root;
-    for (let char of word) {
-      if (curr.children[char] === undefined) curr.children[char] = new Node();
-      curr = curr.children[char];
+    for (let letter of word) {
+      if (curr.children[letter] === undefined)
+        curr.children[letter] = new Node();
+      curr = curr.children[letter];
     }
     curr.isEnd = true;
-  }
-
-  checkPrefixAndIsEnd(prefix) {
-    let curr = this.root;
-    for (let char of word) {
-      if (curr.children[char] === undefined) return [false, false];
-      curr = curr.children[char];
-    }
-    if (curr.isEnd === true) return [true, true];
-    return [true, false];
   }
 }
 
 const cx = [0, 1, 0, -1];
 const cy = [1, 0, -1, 0];
-
-function dfs(i, j, visited, board, word, letter, root, ans, M, N) {
-  if (!visited[i][j]) {
-    visited[i][j] = true;
-    if (root && root.children[letter]) {
-      if (root.children[letter].isEnd) {
-        ans[word] = true;
-        root.children[letter].isEnd = false;
-      }
-      for (let k = 0; k < 4; k++) {
-        const m = i + cx[k];
-        const n = j + cy[k];
-        if (m >= 0 && m < M && n >= 0 && n < N) {
-          if (!visited[m][n] && root.children[letter].children[board[m][n]]) {
-            dfs(
-              m,
-              n,
-              visited,
-              board,
-              word + board[m][n],
-              board[m][n],
-              root.children[letter],
-              ans,
-              M,
-              N
-            );
-          }
-        }
-      }
-    }
-    visited[i][j] = false;
-  }
-}
 
 /**
  * @param {character[][]} board
@@ -104,34 +62,44 @@ function dfs(i, j, visited, board, word, letter, root, ans, M, N) {
  * @return {string[]}
  */
 var solve = function (board, words) {
+  let ans = [];
+  const trie = new Trie();
+  for (let word of words) {
+    trie.insert(word);
+  }
+
   const m = board.length;
   const n = board[0].length;
-  let trie = new Trie();
-  let map = new Map();
-  for (let word of words) {
-    trie.addWord(word);
-    map.set(word, false);
+  function dfs(x, y, word, root) {
+    const letter = board[x][y];
+    board[x][y] = "#";
+    if (root && root.children[letter]) {
+      if (root.children[letter].isEnd) {
+        ans.push(word);
+        root.children[letter].isEnd = false;
+      }
+      for (let k = 0; k < 4; k++) {
+        const i = x + cx[k];
+        const j = y + cy[k];
+        if (i >= 0 && i < m && j >= 0 && j < n && board[i][j] !== "#") {
+          if (root.children[letter].children[board[i][j]] !== undefined) {
+            dfs(i, j, word + board[i][j], root.children[letter]);
+          }
+        }
+      }
+      if (Object.keys(root.children[letter].children).length === 0) {
+        delete root.children[letter];
+      }
+    }
+    board[x][y] = letter;
   }
-  let ans = {};
+
   for (let i = 0; i < m; i++) {
     for (let j = 0; j < n; j++) {
-      let visited = new Array(m).fill().map(() => new Array(n).fill(false));
-      const word = dfs(
-        i,
-        j,
-        visited,
-        board,
-        board[i][j],
-        board[i][j],
-        trie.root,
-        ans,
-        m,
-        n
-      );
-      map[word] = true;
+      dfs(i, j, board[i][j], trie.root);
     }
   }
-  return Object.keys(ans);
+  return ans;
 };
 
 const board = [
