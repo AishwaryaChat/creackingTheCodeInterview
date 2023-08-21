@@ -76,6 +76,8 @@ function mergeTwoLists(l1, l2) {
   return newLL.next;
 }
 
+// TC - O(N*k)
+// SC - O(1)
 function solve(lists) {
   if (lists.length === 0) return null;
   if (lists.length === 1) return lists[0];
@@ -93,6 +95,23 @@ function solve(lists) {
   return newList.next;
 }
 
+// TC - O(NlogK), where K is number of lists and N is total number of nodes including all lists. In this aproach we are not traversing most nodes many times. In previous approach we were traversing each node k times
+// SC - O(1)
+var solveOptimised = function(lists) {
+    const n = lists.length;
+    let interval = 1;
+
+    while (interval < n) {
+      for (let i = 0, _pj_a = n - interval; i < _pj_a; i += interval * 2) {
+        lists[i] = mergeTwoLists(lists[i], lists[i + interval]);
+      }
+
+      interval *= 2;
+    }
+
+    return n > 0 ? lists[0] : null;
+};
+
 const n19 = new Node(19);
 const n13 = new Node(13, n19);
 const n8 = new Node(8, n13);
@@ -109,6 +128,9 @@ const n6 = new Node(6, n7);
 const n5 = new Node(5, n6);
 const root3 = new Node(1, n5);
 
-const lists = [root1, root2, root3];
+const y6 = new Node(5)
+const root4 = new Node(6, y6)
+
+const lists = [root1, root2, root3, root4];
 const merged = solve(lists);
 printLL(merged);
