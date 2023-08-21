@@ -102,7 +102,7 @@ var solveOptimised = function(lists) {
     let interval = 1;
 
     while (interval < n) {
-      for (let i = 0, _pj_a = n - interval; i < _pj_a; i += interval * 2) {
+      for (let i = 0; i < n - interval; i += interval * 2) {
         lists[i] = mergeTwoLists(lists[i], lists[i + interval]);
       }
 
@@ -132,5 +132,5 @@ const y6 = new Node(5)
 const root4 = new Node(6, y6)
 
 const lists = [root1, root2, root3, root4];
-const merged = solve(lists);
+const merged = solveOptimised(lists);
 printLL(merged);
