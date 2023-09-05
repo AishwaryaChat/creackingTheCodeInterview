@@ -28,8 +28,8 @@
 
 // m == grid.length
 // n == grid[i].length
-// 1 <= m, n <= 5 * 104
-// 1 <= m * n <= 5 * 104
+// 1 <= m, n <= 5 * 10^4
+// 1 <= m * n <= 5 * 10^4
 // 0 <= grid[i][j] <= 100
 // 1 <= k <= 50
 
@@ -38,7 +38,9 @@ const Queue = require("../../PracticeQuestions/Queues/arrayImpelemtation");
 const cx = [0, 1];
 const cy = [1, 0];
 
-// TC - O(2^N)
+// TC - O(M*N*sums)
+// This will lead to TLE
+// SC - O(M*N*sums)
 function dfs(x, y, grid, k, N, M, dp, sum) {
   if (x === N - 1 && y === M - 1) {
     return sum % k === 0 ? 1 : 0;
@@ -56,15 +58,15 @@ function dfs(x, y, grid, k, N, M, dp, sum) {
   return (dp[key] = ans);
 }
 
-function solveOptimised(grid, k) {
+function solve(grid, k) {
   const N = grid.length;
   const M = grid[0].length;
   const dp = {}
-  let ans = dfs(0,0, grid, k, N, M, dp, grid[0][0]);
+  let ans = dfs(0, 0, grid, k, N, M, dp, grid[0][0]);
   return ans;
 }
 
-function solve(grid, k) {
+function solveBFS(grid, k) {
   const N = grid.length;
   const M = grid[0].length;
   const queue = new Queue();
@@ -85,6 +87,32 @@ function solve(grid, k) {
     }
   }
   return ans;
+}
+
+// The below solution is not relying on the sum states rather it is replying on sumMod(Sum of grid[i][j]%k) states, this way at any point during execution we will have only M*N*k states
+// TC - O(M*N*k)
+// TC - O(M*N*k)
+const MOD = Math.pow(10, 9) + 7
+
+function optimisedDFS(i, j, sumMod, dp, grid, k) {
+  if (i === grid.length && j === grid[0].length) {
+    return sumMod === 0 ? 1 : 0
+  }
+  if (dp[i][j][sumMod] !== undefined) return dp[i][j][sumMod]
+  let ans = 0
+  if (i + 1 < grid.length) {
+    ans = (ans + optimisedDFS(i + 1, j, (sumMod + grid[i + 1][j]) % MOD)) % MOD
+  }
+
+  if (j + 1 < grid[0].length) {
+    ans = (ans + optimisedDFS(i, j + 1, (sumMod + grid[i][j + 1]) % MOD)) % MOD
+  }
+  return dp[i][j][sumMod] = ans
+}
+
+function solveOptimised(grid, k) {
+  const dp = new Array(grid.length).fill().map(() => new Array(grid[0].length).fill().map(() => new Array(k)))
+  return optimisedDFS(0, 0, grid[0][0] % k, dp, grid, k)
 }
 
 const grid = [
