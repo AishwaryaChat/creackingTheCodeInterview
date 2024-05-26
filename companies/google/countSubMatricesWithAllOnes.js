@@ -113,4 +113,49 @@ const mat = [
 // ];
 // Output: 24
 
+// TC - O(N*M)
+// SC - O(N*M)
+function bottomUpSolution(matrix) {
+  const n = matrix.length;
+  const m = matrix[0].length;
+  for (let j = 0; j < m; j++) matrix[0][j] = matrix[0][j];
+  for (let i = 0; i < n; i++) matrix[i][0] = matrix[i][0];
+
+  for (let i = 0; i < n; i++) {
+    for (let j = 0; j < m; j++) {
+      if (i === 0 || j === 0 || matrix[i][j] === 0) continue;
+      matrix[i][j] = 1 + Math.min(matrix[i - 1][j], matrix[i][j - 1], matrix[i - 1][j - 1]);
+    }
+  }
+  let ans = 0;
+  for (let i = 0; i < n; i++) {
+    for (let j = 0; j < m; j++) {
+      ans += matrix[i][j];
+    }
+  }
+  return ans;
+}
+
+function topDownSolution(matrix) {
+  let dp = {};
+  let count = 0;
+  function dfs(matrix, i, j, len) {
+    if (i + len >= matrix.length || j + len >= matrix[0].length) return 0;
+    if (dp[`${i}_${j}`] !== undefined) return dp[`${i}_${j}`];
+    let ans = 0;
+    for (let m = i; m <= i + len; m++) {
+      for (let n = j; n <= j + len; n++) {
+        if (matrix[m][n] === 0) return 0;
+      }
+    }
+    return (dp[`${i}_${j}`] = 1 + dfs(matrix, i, j, len + 1));
+  }
+  for (let i = 0; i < matrix.length; i++) {
+    for (let j = 0; j < matrix[0].length; j++) {
+      count += dfs(matrix, i, j, 0);
+    }
+  }
+  return count;
+}
+
 console.log(solveOptimised(mat));
