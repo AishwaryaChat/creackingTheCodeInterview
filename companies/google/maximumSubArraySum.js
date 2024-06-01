@@ -53,16 +53,15 @@ function solve(nums) {
 // TC - O((N)
 // SC - O(1)
 // Kadane's Algorithm
+// as soon as we see that the sum till now is less than the current element, that means it is not worth it to keep that subarray and start with new one.
 function solveOptimised(nums) {
-    let ans = Number.MIN_SAFE_INTEGER
-    for(let i=0;i<nums.length; i++) {
-            let sum = 0
-        for(let j=i;j<nums.length; j++) {
-            sum+=nums[j]
-            ans = Math.max(ans, sum)
-        }
+    let maxNum = nums[0]
+    let max = nums[0]
+    for(let i=1; i<nums.length; i++) {
+        maxNum = Math.max(maxNum + nums[i], nums[i])
+        max = Math.max(max, maxNum)
     }
-    return ans
+    return max
 }
 
 
