@@ -44,6 +44,26 @@ function solve(nums) {
   findCanJump(nums, 0, dp);
   return dp[nums.length - 1] === undefined ? false : true;
 }
+
+// TC- O(N^2)
+// SC-O(N)
+function solveBottumUp(nums) {
+    let dp = new Array(nums.length).fill(false)
+    dp[nums.length-1] = true
+    for(let i=nums.length-2; i>=0; i--) {
+        if(nums[i] === 0) dp[i] = false
+        else {
+            for(let j=i+1; j<=i+nums[i] && j<nums.length; j++) {
+                if(dp[j]) {
+                    dp[i] = dp[j]
+                    break
+                }
+            }
+        }
+    }
+    return dp[0]
+}
+
 // Optimised
 // We basically have to keep a leftmost index which will eventually be able to jump to the last position. So at any position if it is possible to jump par this leftmost then it is possible to reach last position from this position also
 // TC - O(n)
