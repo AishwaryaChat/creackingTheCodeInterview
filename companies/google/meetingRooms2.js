@@ -45,6 +45,27 @@ function solve(intervals) {
   return count;
 }
 
+// TC - O(NlogN)
+// SC - O(N)
+function solution2(intervals) {
+  let startTime = intervals.map(a => a[0]).sort((a, b) => a-b)
+    let endTime = intervals.map(a => a[1]).sort((a, b) => a-b)
+    let startPointer = 0
+    let endPointer = 0
+    let roomsUsed = 0
+    while(startPointer<intervals.length) {
+      // we are just checking if a previous meeting is ending, so vacate its room
+        if(startTime[startPointer] >= endTime[endPointer]) {
+            endPointer+=1
+            roomsUsed-=1
+        } 
+        // everytime a meeting is coming we are using a room, it will be compensated in above step if a meeting has ended by that time
+        roomsUsed+=1
+        startPointer+=1
+    }
+    return roomsUsed
+}
+
 const intervals = [
   [0, 30],
   [5, 10],
