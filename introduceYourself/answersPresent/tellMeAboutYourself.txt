@@ -1,0 +1,12 @@
+Tell me about yourself
+
+-> CS engineer, but a creative builder
+-> Like to do craft since school days
+-> reminicse mom's face when I created a house out of news paper, and a fruit basket
+-> involvement in school and college art and cultural fest
+-> continued in coding style
+-> give examples of a sudoku game from developer perspective
+-> Also Painting and doodling in free time
+-> Google apprecite such creative culture, so this will excite me more to work in such environment
+
+Although I am a computer science engineer but I identify myself as a creative builder, constantly seeking out unique opportunities to express my creativity. Since my school days, I have enjoyed crafting pieces of art and experimenting with everyday items like newspaper and cardboard boxes to create something new. I still remember the delight on my mother's face when I created a little fruit basket out of newspaper for her. As I have progressed in my career, I have infused this artistic inclination into my web-based projects, leading to the development of unique features, such as an aesthetically pleasing sudoku game with visually appealing color schemes and blinking effects that occur when a row, column, or box is successfully filled The creative culture at Google is what excites me the most about working here, as it is a place where creativity is valued and celebrated.

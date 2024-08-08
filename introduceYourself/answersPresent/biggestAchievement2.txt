@@ -1,0 +1,44 @@
+Situation
+    -> Existing application for products assignment was unstable
+    -> unstable in terms of how a feature behaved differently in same kind of operation
+
+Task
+
+    -> The Task here was to find out the potential reasons why the application state is unstable
+    -> I consider this going above and beyond my responsibilities as a senior engineer because I proactively identified and addressed critical issues that were not part of my assigned tasks. By prioritizing and resolving these issues, I significantly improved the customer experience, reduced system bugs, and enhanced the overall performance and efficiency of our application, ultimately contributing to the team's success and the company's goals.
+
+
+Action
+    -> I conducted a proof of concept and presented various performance metrics to my manager to emphasize the importance and urgency of taking up this task promptly.
+
+    -> After multiple discussions with key stakeholders, including the product manager, architect, and other senior engineers, the next step was to identify and document all the issues causing the system's unpredictable behavior.
+
+
+    -> I created a roadmap for this by dividing the task into four segments: development, unit testing, feature flag-based testing in the staging environment, and rollout to production.
+    
+    -> I also created tasks to monitor web vitals and performance metrics during development to ensure we didn't introduce new issues while fixing existing ones.
+
+
+Challenges
+    -> New system -> codebase challenge -> scheduled KT sessions
+    -> heavy code changes -> maintain code sanity -> introduced early QA testing
+    -> external libraries dependance -> integration issues -> regular sync with responsible teams
+
+    -> New system, undeerstanding the codebase was a challenge, and so I scheduled regular knowledge-sharing sessions to ensure everyone is on same page
+
+    -> To maintain code sanity amid numerous changes, I significantly increased the coverage and reliability of automated tests, including unit, integration, and end-to-end tests. Additionally, I strengthened QA processes by involving QA engineers early in the development cycle and during planning sessions.
+    
+    -> The application relies on several external libraries, including a services framework for server API calls, which can lead to integration issues and so I Regularly sync with teams responsible for the external libraries to stay updated on changes and ensure smooth integration.
+
+Results
+    -> We got amazing results regarding to performance
+    -> improved performance metrics, we improved the performance from 65% to 90%
+    -> I have been awarded with Qualer recognition for this task, which gave me greater motivation to work harder towards product success
+    
+
+Learnings
+    -> This was the first time I handled something this big on my home and it was a success and I learned a lot while executing this task
+    -> More than a task it was a code ramp up for our application where maintaining the current state of application was crucial, task estimation was a crucial thing here and with the help of my manager and architect I was able to give somewhat 
+    -> I conducted various knowledge sharing sessions while progrssing in this task
+    -> I also documented our learnings and made sure other team members who worked on this also document their learnings
+    -> I created a checklist and best practices of state management, accessibility checklist and shared it across the teams

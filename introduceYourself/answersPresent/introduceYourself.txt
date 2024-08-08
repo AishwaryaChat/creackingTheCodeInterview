@@ -1,0 +1,18 @@
+Hi I am Aishwarya.
+
+    -> I did my engineering in Computer Science
+    -> I am currently working as a Senior Software Engineer at Adobe.
+    -> I am working for Digital Media segment and I am responsible for delivering frontend features end to end starting from design phase, taking them to production and for further support.
+    -> The product helps businesses, educational and government istitutions to buy Adobe products liscences in bulk.
+
+Before this I have worked with Walmart labs and a couple of startups as well.
+
+I started my career as a consultant at IBM where I worked on an in-house product related to the file gateway system for two years. However, I wanted to take on more development-intensive roles and so I decided to join a startup where I could learn and grow more.
+
+At the startup, we were developing an ERP solution for academic institutions and I took the lead in developing the frontend system in React and the backend system in Node.js using Express and MongoDB as the database. I also worked on other projects using Handlebars and Hapi.js.
+
+After two and a half years in the startup ecosystem, I wanted to take on a bigger challenge and so I started looking for jobs in the retail domain. That's when I got the opportunity to work with Walmart, where I initially joined a team that was developing an internal ERP tool for Walmart stores fixture inventory. I worked on a major module here that involved creating a 3D map layout for the stores.
+
+After a year, I moved to another project, which was again an internal Walmart tool to showcase store statistics for the past five years. For two years, I worked on data-heavy projects and then I wanted to get a flavor of user-scalable projects as well, so I moved to Walmart Retail, where I am currently working.
+
+My current project involves building a retail web app for walmart business users. We already have a B2C product in place, called walmart.com, but our business needed a separate website to cater to business users. They wanted all their employees to use the same account for tracking spending, which led to the development of business.walmart.com.

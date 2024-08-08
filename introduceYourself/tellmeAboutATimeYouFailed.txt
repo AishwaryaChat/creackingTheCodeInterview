@@ -1,0 +1,21 @@
+
+
+Situation & Task
+    -> I recently worked on a project where I was leading a team to launch a feature of a new product. We had spent months researching, developing, and testing the product, and we were excited to launch it to the market. However, when we finally released the product, it didn't perform well in some areas with respect to the accessicibilty. The users with visual impairment were facing difficulty accessing our tool
+
+Action
+    -> I created a checklist for accessibility best practices and floated it around other teams
+    -> I also introduced accessibility test cases that should be written for each component
+
+Learning
+    -> Go through the persona journeys
+    -> think through different stakeholders
+    -> follow a checklist before releasing
+
+
+
+At first, I was disappointed that the product wasn't successful. However, I knew it was important to take a step back and figure out what went wrong. So, I gathered feedback from customers, business and testing team, and had honest conversations with my team.
+
+What I discovered was that we had made some incorrect assumptions about our target users and their needs. We had not done enough research into our customers' preferences, and we had not tested the product extensively enough for accessibility before launching it.
+
+From this experience, I learned the importance of taking a customer-centric approach to product development and launching. I also learned that it's essential to thoroughly test and go thorugh the checklist before launching a feature.

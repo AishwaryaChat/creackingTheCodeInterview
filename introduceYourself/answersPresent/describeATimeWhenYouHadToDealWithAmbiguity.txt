@@ -1,0 +1,87 @@
+Describe a time when you had to deal with ambiguity
+
+Situation
+    -> we were tasked with delivering a product to the Mexican government.
+    -> The project was fraught with numerous unknowns, unclear, and frequently changing requirements. 
+
+Challenges:
+    -> Delivering an MVP solution within a tight 15-day timeframe.
+    -> Ensuring the solution was robust and reliable to build trust with a new customer.
+    -> Overcoming communication gaps due to language differences.
+
+Action:
+    -> Frequent Client Meetings: We set up regular and frequent calls with the client to gather as many requirement clarifications as possible. This helped us understand their expectations better and reduce ambiguities.
+
+    -> Active Inquiry: I encouraged the team to ask detailed and probing questions to thoroughly understand the problem space and the client's needs.
+
+    -> Task Division: We divided the project into smaller, manageable features that could be developed and tested in isolation. This modular approach allowed for more focused development and easier troubleshooting.
+
+    -> Flexible Design Decisions: We opted for design decisions that ensured robustness and scalability, such as using a NoSQL database, which could easily accommodate changes in requirements.
+
+    -> Iterative Development: We adopted an iterative development process with each iteration reviewed by the client. This ensured continuous alignment with client expectations and allowed us to identify and rectify misalignments early in the process.
+
+    -> Agile Methodologies: Embracing agile methodologies allowed us to be flexible and adaptable to changing requirements. We conducted regular sprint reviews and retrospectives to continuously improve our processes.
+
+
+Results/Learnings:
+    -> MVP Release: The MVP release was largely successful, though there were some gaps and one feature that was implemented differently from the customer's expectations.
+
+    -> Scalability and Flexibility: Due to our scalable and robust design, we were able to incorporate the necessary changes with minimal impact on the overall system architecture.
+
+    -> Key Learnings: Remaining open to changes and being flexible in our approach can lead to the development of great products.
+
+    -> Effective collaboration and communication are critical to success.
+
+    -> Adopting an open-minded approach to changes ensures adaptability and resilience in project execution.
+
+_________________________________________________________________
+
+situation
+    -> We had to deliver a product to mexican government
+    -> there were lot of unknowns, unclear and changing requirements
+    
+
+Challenges
+    -> the expectation was to deliver a mvp solution in 15 working days of time
+    -> Since this was a new customer so it was imprtant for us to provide a working robust solution in the very first iteration to create trust with the customer
+    -> there was communication gap because of language barrier
+
+Action
+    -> first action Item from the team was to set up frequent calls with the client to get as many requirement clarifications as possible
+    -> asked a lot of questions to better understand problem
+    -> We divided the task into smller features, which could be tested in isolation
+    -> We took design decesions to have a robut solution, yet one which could accomodate changes later in time, like using a Nosql database which could incorporate changes in btw as well
+    -> We did the development in iteration with each iteration to be reviewed by the client to get a clarification if this is what they are expecting, so that we get to know in initial phse itself if we are not aligned on something
+    -> we were flexible and adaptable to changes in requirements -> we used agile methodologies
+
+Results
+    -> The mvp release was somewhat successful, with some gaps here and there
+    -> there was a feature where the implementation was completely different from what the customer was expecting
+    -> But because we created a scalable
+    
+
+situation
+    -> incident from one of previous project (NISSI, SAGARPA) -> new product
+    -> lot of unknowns, unclear requirements
+    -> difficulties about clear project plan and timelines
+
+task
+    →> delivery of a mvp features in shorter time period
+    -> since mvp, so we were expected to present a robust solution, since we had to gain trust from client
+
+actions
+    -> began gethering information from all stakeholders and subject matter experts
+    -> asked a lot of questions to better understand problem
+    -> took design decesions such that its easier to incorporate changes
+    -> engaged in frequent communication with team members to align
+    -> we were flexible and adaptable to changes in requirements -> we used agile methodologies
+
+results/learnings
+    -> The mvp release was somewhat successful, with some gaps here and there
+    -> there was a feature where the implementation was completely different from what the customer was expecting
+    -> But because we created a scalable and robust system we could incorporate change with minimal changes in design
+    -> i learned how remaining open for changes can also lead to great products
+    -> collaboration and communication is the key
+    -> being open minded for changes was the key
+
+One example of dealing with ambiguity was during a project where we were tasked with developing a new product. The product requirements were not clearly defined, and we had to work with a lot of unknowns. Initially, this made it difficult to establish a clear project plan.

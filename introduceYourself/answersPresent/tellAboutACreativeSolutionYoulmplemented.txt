@@ -1,0 +1,82 @@
+Situation:
+    -> Existing solution for inventory management was not productive.
+    -> The process was inefficient, particularly in terms of ordering inventory.
+    -> The process was time-consuming, and we had tight timeline constraints.
+
+Task:
+    -> Provide an efficient solution for block-data filtering.
+    -> Work within the given design constraints.
+
+Action:
+    -> Thought of providing an out-of-the-box solution.
+    -> Got a hint from already existing data.
+    -> Provided a solution using a 3D library.
+    -> Worked parallelly on both the proposed solution and a proof of concept for my solution.
+    -> Collaborated with other team members to understand existing APIs.
+    -> Showed passion and enthusiasm for the project.
+    -> Engaged in cross-functional teamwork and collaboration.
+    -> Found the task enjoyable and a great learning experience.
+
+Challenges:
+    -> Collaboration with multiple teams, each with its own priorities and schedules.
+    -> Ensuring seamless integration with existing systems.
+
+Results:
+    -> Delivered an optimized solution.
+    -> Streamlined the inventory management process, making it more efficient and less time-consuming.
+    -> Received praise from users and the team.
+    -> Improved overall productivity and user satisfaction.
+    -> Created valuable relationships across different teams in the company.
+
+Learning:
+    -> Ideas can come at any time; it's essential to question existing solutions (first principle thinking).
+    -> Highlighted the importance of task estimation.
+    -> Emphasized the value of approaching new and innovative solutions.
+    -> Understood the importance of design considerations in developing solutions.
+
+Keywords:
+    -> Passion
+    -> Cross-functional teamwork
+    -> Collaboration
+    -> Innovation
+    -> Task estimation
+    -> First principle thinking
+    -> Design considerations
+
+_________________________________________________________________
+
+
+Situation
+    -> Existing solution for inventory management was not productive
+    -> Present solution was not efficient, efficient not in terms of ordering the inventory, process was time consuming -> timeline constraint
+
+Task
+    -> Provide efficient solution for block-data filtering
+    -> with given design
+
+Action
+    -> thought of providing Out of box solution
+    -> got a hint from already existing data
+    -> Provided a solution using 3D library
+    -> worked parallelly both on proposed solution and on proof of concept of my solution
+    -> had to collaborate with other team members to understand existing apis
+    -> KEYWORDS - show passion, show cross functional team work, team collaboration, show how enjoyable the task was
+
+Challenges
+    -> Coolaboration with multiple teams
+
+Results
+    -> optimised solution
+    -> got praise from users and the team
+    -> connected with different teams across the company and created valuable relationships
+
+Learning
+
+    -> Idea can come any time, its just that we have to first question on existing solution (first principle thinking)
+    -> KEYWORDS - task estimation, approaching new and innovative solutions, design considerations
+
+
+    
+One of my most significant accomplishments in my previous work was leading a project where I had to develop a creative solution to solve a problem at Walmart. Our team was working on a feature that required us to display block-related fixture data for a store. However, the existing product was not delivering efficient results, leading to delays in meeting business deadlines.
+
+To address this, I decided to challenge myself and find a more innovative solution. I observed that we had svg files available for our store layouts that included block-related data, and we also had APIs to fetch data based on blocks. So, I created a proof of concept using the D3 library to display a 3D model of the store, leveraging the svg files and API data.

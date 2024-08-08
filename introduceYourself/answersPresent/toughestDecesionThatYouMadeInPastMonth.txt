@@ -1,0 +1,32 @@
+Tell me about a difficult dicesion that you made in past 6 months
+technical
+
+Situation
+
+two solutions
+    - using legacy code and iterations on that
+    - start from scratch
+
+Task
+    - analyseing
+    - time crunch
+    - in solution 1 understanding the existing code base was time crunch
+    - in solution 2 starting from scartch was time consuming, testing
+
+Actions
+    - I helped the team to identify wat can be reused and wat cannot be by collaborating with different team
+    – Since I was a person working at walmart from long time, so I utiilised my contacts to collaborate with different teams to understand the code base
+
+Lessons
+    - networking can help in faster decesion making and learning - sometimes an educated guess is wat we have to go forward with
+
+use legacy code or use from scratch
+
+situation
+personal - solo trip
+getting out of my comfort zone
+- i like to be surrounded with known people
+- when with people reponsibilities are divided
+- you have to create that sense of enjoyment for yourself
+being a married person you have to explain many other people why you
+want to travel solo

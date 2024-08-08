@@ -1,0 +1,61 @@
+Example of RAP micro frontends
+
+Situation
+I was working with my team on creating a microfrontend application to provide centralized login for 10-12 applications within our organization. We were in the final stages of the design phase when we discovered that a somewhat similar solution already existed within another team.
+
+Task
+    -> Gather Information: Collect detailed information from various stakeholders about the requirements and existing technologies.
+
+    -> Integration Needs: Identify the different technology     applications that needed to be integrated into the centralized login system.
+
+    -> Cross-Team Collaboration: During a design discussion, we connected with different teams and discovered that a similar solution already existed. We needed to assess whether this existing solution could be utilized and extended for our needs.
+
+Action
+    -> Initiate Discussions: Organized meetings with the team responsible for the existing solution to understand its architecture, capabilities, and limitations.
+
+    -> Coordinated with our stakeholders to align the requirements of our project with the features of the existing solution.
+
+    -> Evaluate the Existing Solution: Conducted a thorough technical evaluation of the existing solution to determine its compatibility with our needs.
+
+    -> Identified gaps and areas where additional features or modifications were required.
+
+    -> Design a Wrapper: Decided to build a custom wrapper around the existing solution to extend its functionality and meet our specific requirements.
+
+    -> Designed the wrapper to ensure seamless integration with the existing solution and other applications in our ecosystem.
+
+    -> Collaboration and Documentation: Collaborated closely with the other team throughout the development process to ensure smooth integration.
+
+    -> Documented the integration process, design decisions, and any modifications made to the existing solution for future reference.
+
+Result
+
+    -> Successful Integration: Achieved a seamless and efficient centralized login system by leveraging the existing solution and building a custom wrapper.
+
+    -> Reduced development time and resource expenditure by utilizing the existing solution.
+
+    -> Enhanced Collaboration: Fostered a spirit of collaboration and knowledge sharing between teams, which improved the overall synergy within the organization.
+
+    -> Learning Outcomes: Gained a deep understanding of microfrontends architecture and its practical implementation.
+
+    -> Learned the importance of thorough research and communication with other teams before embarking on a new project to avoid redundant efforts.
+
+    -> Recognized the value of flexibility and adaptability in leveraging existing solutions to meet new requirements.
+
+Situation
+    -> Create microfrontend application and a somewhat similar solution already existed
+    -> Provide centralised login for 10-12 applications.
+    -> We were in the final stage of the design phase when we got to know about this
+
+Task
+    -> Gather information from different stake holders
+    -> find out different technology applications are present that needs to be integrated
+    -> During a design discussion we were required to connect to different teams, thats when we got to know that a similar solution existed and we could use this and create our own wrapper on top of it
+
+
+Action
+    -> 
+
+Result
+    -> Learned a lot about how microfrontends architecture work
+    -> 
+

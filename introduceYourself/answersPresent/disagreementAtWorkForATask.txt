@@ -1,0 +1,83 @@
+how will you deal with your peer if they prefer a different solution than what you proposed
+
+Situation:
+    -> While I was working as a front-end engineer for a product at Adobe, I encountered a significant bug in our application.
+    -> The application was entering an undesirable state when a specific user action was performed.
+    -> The disagreement was related to the solutions I and our architect were providing for the bug.
+    -> My manager asked me to find a solution within a day and roll it out to production immediately. Although I felt this timeline was a bit stringent, I initially refrained from voicing my concerns because I was not fully aware of the bug's details at that time.
+
+Task:
+    -> My task was to identify and implement a solution for the bug within the given timeframe, ensuring it would not negatively impact the application's performance.
+
+Action:
+    -> Identifying Solutions: I began by thoroughly investigating the bug and identifying two potential solutions. I documented each solution, detailing the necessary changes, along with the pros and cons of each.
+
+    -> Collaboration: I set up a meeting with our architect to present my findings. During the meeting, I laid out both solutions, emphasizing their respective advantages and drawbacks.
+
+    -> Disagreement: The architect was not in favor of either of my proposed solutions, as he found them too lengthy. He suggested an alternative that was simpler but not very performant. Understanding the urgency and the directive from higher authorities, I acknowledged his perspective but expressed my concern that his solution might not address the root cause of the bug.
+
+    -> Negotiation: Despite the architect's firm stance, I calmly and respectfully suggested that while we implement his solution to meet the immediate deadline, I would also work on a more robust solution concurrently. After some discussion, we reached an agreement on this approach.
+
+Result:
+    -> The quick fix, although not addressing the root cause, allowed us to meet the deadline and saved millions of transactions.
+    -> Subsequently, I implemented the more robust solution I had proposed.
+    -> This comprehensive fix not only resolved the initial bug but also addressed similar issues within the application.
+    -> My contribution was recognized, and my solution was praised for its long-term benefits.
+
+Learnings:
+    -> Listening and Asking Questions: This experience reinforced the importance of listening and asking questions before challenging leadership decisions.
+    -> Researching Multiple Solutions: It highlighted the critical value of researching and presenting multiple solutions when faced with a disagreement or an opportunity to share a different perspective.
+    -> Balancing Immediate Needs with Long-term Solutions: It underscored the importance of balancing immediate requirements with the implementation of long-term, robust solutions to ensure sustainable success.
+
+_________________________________________________________________
+
+
+-> arrange to have one-one-one with them
+→> I prepare pros and cons of the solution that I have proposed
+-> first try to understand their perspective and reasoning behind opinion
+-> may be I can get valuable insights, which I might not have
+-> this cud lead to better decesion being made
+-> try to be open and honest discussion
+-> after hearing them I will put my reasoning
+-> open to feedback
+-> communicate clearly and respectfully
+-> if still no agreement, seek input from higher level
+-> focus on collaborative and constructive attitude Throughout -> focus on what's best for the team and project
+
+Talk about - The bug in admin console
+
+
+Situation
+Talk about - The bug in admin console (Adobe)
+great question indeed, so you want me to tell about a time where I had an opportunity to share a different perspective with my boss
+
+
+Situation & Task
+    -> The situation occured when I was working as frontend engineer for a product at adobe and I was asked to solve a bug where the application was going in an undesirable state when a particular action was taken by the user. I have been told to provide a solution in a day and should be rolled out in production the same day. I found this a lil stern but I didn't put my words because I didnt know much about the bug at that time.
+    
+
+Action
+    -> The first action item -> find solutions that fits the most in current situation
+    -> I identified 2 possible solutions for this and I documented the solutions and the number of changes required in each of them and pros and cons behind each of them.
+    -> The next action step from my end was to setup a call with my architect and present both the solutions with pros and cons of each.
+    -> The architect coudln't agree with any of my solutions since my solutions were lengthy. He had another solution which was straightfwd, but was not very performant. I politely put through my point that the solution that he is giving might not solve the root cause of the bug.
+
+    -> Although I had eperienced that our architect is always open to suggestions and considerations, and while he was pretty friendly but also he was very stern about the solution he was suggesting and that it needs to be rolled out in production the very next day.
+    -> I handled the situation calmly and tired to understand his perspective and got to know that this was something coming from the higher authorities and needs to be done soon.
+    While I agreed with the solution he asked to give, I still politely asked him that I need to work on the robust solution simultaneously.
+    -> We both agreed over this.
+
+Results
+    -> Although the fix was not fixing the root cause of the issue but we could deliver things on time and it saved us worth a million of transactions.
+    -> Later I implemeted the solution that I was proposing and also I was recognised to give that solution because it solved many other similar issues in the application
+
+Learnings
+    -> Importance of listening and asking questions before challenging leadership
+    -> Researching multiple solutions is very critical to success when you have a disagreement or an opprtunity to share your perspective with your peers
+
+
+example - talk about RAP login flow
+
+
+If a peer disagrees with the priority I have set, I would first try to understand their perspective and reasoning behind their opinion. It's possible that they have valuable insights or information that I don't have, which could lead to a better decision being made. I would encourage an open and honest discussion to fully understand their point of view and share my own.
+If, after hearing their perspective, I still believe that my priority is the best course of action, I would explain my reasoning and the information I used to come to that decision. It's important to communicate clearly and respectfully, while also being open to
