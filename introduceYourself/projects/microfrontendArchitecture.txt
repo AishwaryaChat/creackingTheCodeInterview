@@ -1,0 +1,17 @@
+Challenges faced while creating a microfrontend application
+
+Handling Cross-Microfrontend Navigation - If a user interaction in one microfrontend (within an iframe) should trigger a navigation event in another microfrontend, this can be orchestrated by the parent application.
+
+Cross-Origin Issues: If microfrontends come from different domains, managing communication between the parent and iframe requires attention to cross-origin policies.
+
+
+Why we chose iframes to integrate microfrontends
+    -> Diverse Tech Stacks: iframes are ideal if different microfrontends are built with entirely different tech stacks or versions of frameworks
+    -> Because we were dealing with some legacy systems as well, we found it easy to integrate using iframes, since iframes required only post messaging capabilities to be newly developed. If the microfrontends are pre-existing applications with their routing, state management, and technology stack, iframes allow these to be embedded without modification.
+    -> Required rapid prototyping
+
+
+    what else could be used? Webpack's module federation
+        -> easy for 
+
+

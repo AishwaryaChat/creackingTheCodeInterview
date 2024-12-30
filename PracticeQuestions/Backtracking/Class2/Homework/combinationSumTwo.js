@@ -66,36 +66,31 @@
 //  3 = 3
 //  All the above combinations sum to 3 and are arranged in ascending order.
 
-function dfs(A, target, pos, ans, midAns, sum) {
-    console.log("sum", sum)
-//   console.log("sum outside", sum, "pos", pos, "A[pos]", A[pos]);
+function dfs(nums, target, ans, midAns, sum, pos) {
+  if (pos>nums.length || nums[pos] > target || sum > target) return;
   if (sum === target) {
-    console.log("inside")
     ans.push(midAns.map((a) => a));
     return;
-  } else if (sum > target) return;
-  else if (pos === A.length) return;
-  dfs(A, target, pos + 1, ans, midAns.concat(A[pos]), sum + A[pos]);
-  dfs(A, target, pos + 1, ans, midAns, sum);
-//     if (sum + A[pos] <= target) {
-//         } else {
-// //     // console.log("sum", sum)
-//   }
+  }
+  dfs(nums, target, ans, midAns.concat(nums[pos]), sum + nums[pos], pos+1)
+  dfs(nums, target, ans, midAns, sum, pos+1)
+  return ans;
 }
 
 function solve(A, B) {
-    A.sort((a,b)=>a-b)
+  A.sort((a, b) => a - b)
+  // let freq = {};
+  // for (let ch of A) {
+  //   if (!freq[ch]) freq[ch] = 0;
+  //   freq[ch] += 1;
+  // }
   let ans = [];
-  for(let i=0;i<A.length;i++) {
-    console.log("i", i)
-      dfs(A, B, i, ans, [], 0);
-console.log("anssss", ans)
-  }
-  console.log("ans", ans);
+  dfs(A, B, ans, [], 0, 0);
+  return ans;
 }
 
-const A = [10, 1, 2, 7, 6, 1, 5];
-const B = 8;
+// const A = [10, 1, 2, 7, 6, 1, 5];
+// const B = 8;
 // Output :
 // [
 //   [1, 1, 6 ],
@@ -112,5 +107,8 @@ const B = 8;
 //   [1, 2 ],
 //   [3 ]
 //  ]
+
+const A =  [8, 10, 6, 11, 1, 16, 8 ]
+const B = 28
 
 console.log(solve(A, B));

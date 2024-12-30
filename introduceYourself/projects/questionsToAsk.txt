@@ -1,0 +1,32 @@
+what does a day looks like in this position
+what does success looks like in this position
+What does the team’s roadmap look like for the next 6-12 months?
+what do you love about google and this team
+
+Role Expectations and Growth
+    -> What are the immediate priorities for the person stepping into this role?
+    -> How big the team is, what is the work distribution among team
+    -> What will be the growth opporunities for a person working in this role.
+    -> How does the team support professional growth and development?
+    -> What opportunities are there for taking ownership of projects or leading initiatives?
+
+Technical Stack and Practices
+    -> What is the primary tech stack the team is using, and are there any plans to evolve it?
+    -> How does the team approach technical debt and code quality?
+    -> What are the team's practices around code reviews, testing, and deployment?
+
+Team and Project Details
+    -> Can you tell me more about the current projects the team is working on?
+    -> What are the key challenges the team is facing right now?
+    -> How does the team measure success for the projects they're working on?
+
+
+
+
+
+Company and Team Vision
+    -> How does this team contribute to the broader goals of Google?
+
+Onboarding Process
+    -> What does the onboarding process look like for new team members?
+    -> How does the team ensure a smooth transition and integration for new hires?

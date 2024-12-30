@@ -40,6 +40,7 @@ Result
     -> Learned the importance of thorough research and communication with other teams before embarking on a new project to avoid redundant efforts.
 
     -> Recognized the value of flexibility and adaptability in leveraging existing solutions to meet new requirements.
+_________________________________________________________________
 
 Situation
     -> Create microfrontend application and a somewhat similar solution already existed

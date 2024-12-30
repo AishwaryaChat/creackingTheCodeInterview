@@ -2,8 +2,8 @@ Hi I am Aishwarya.
 
     -> I did my engineering in Computer Science
     -> I am currently working as a Senior Software Engineer at Adobe.
-    -> I am working for Digital Media segment and I am responsible for delivering frontend features end to end starting from design phase, taking them to production and for further support.
-    -> The product helps businesses, educational and government istitutions to buy Adobe products liscences in bulk through direct and indirect sources and recently i enjoyed working on a performance improvement task for this product.
+    -> I work for Digital Media segment and here I am responsible for delivering frontend features end to end starting from design phase, and taking them to production and for further support.
+    -> The product helps businesses, educational and government institutions to buy Adobe products liscences in bulk through direct and indirect sources.
 
 Prior to this I have worked with Walmart labs and a couple of startups as well.
 

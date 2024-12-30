@@ -48,12 +48,12 @@
 // https://leetcode.com/problems/number-of-good-paths/solutions/3052905/javascript-union-find/
 // TC - O(NlogN)
 // SC - O(N)
-function sortEdges(edges) {
+function sortEdges(edges, vals) {
   edges.sort((a, b)=>{
-      a = Math.max(...a.map(i => vals[i]));
-      b = Math.max(...b.map(i => vals[i]));
-      return a-b;
-  });
+  a = Math.max(...a.map(i => vals[i]));
+  b = Math.max(...b.map(i => vals[i]));
+  return a-b;
+});
 }
 
 function findParent(x, parent) {
@@ -64,10 +64,12 @@ return (parent[x] = findParent(parent[x], parent));
 function union(x, y, parent, maxCount) {
 const px = findParent(x, parent);
 const py = findParent(y, parent);
+console.log("px", px, "py", py)
+console.log("maxCount", maxCount)
 if (px === py) return 0;
-parent[py] = px;
 const [xValue, xFreq] = maxCount[px];
 const [yValue, yFreq] = maxCount[py];
+parent[py] = px;
 if(xValue===yValue) {
   maxCount[px] = [xValue, xFreq+yFreq]
 } else if(xValue>yValue) {
@@ -75,19 +77,11 @@ if(xValue===yValue) {
 } else {
   maxCount[px] = [yValue, yFreq]
 }
-}
-
-function getPathsFromJoining(x, y, parent, maxCount) {
-const px = findParent(x, parent);
-const py = findParent(y, parent);
-if (px === py) return 0;
-const [xValue, xFreq] = maxCount[px];
-const [yValue, yFreq] = maxCount[py];
 if (xValue === yValue) return xFreq * yFreq;
 return 0;
 }
 
-function solve(vals, edges) {
+var solve = function(vals, edges) {
 const N = vals.length;
 const parent = [];
 const maxCount = [];
@@ -99,13 +93,11 @@ sortEdges(edges, vals);
 console.log("edges", edges)
 let count = N;
 for (let e of edges) {
-  console.log("parent", parent)
-  console.log("maxCount", maxCount)
-  count += getPathsFromJoining(e[0], e[1], parent, maxCount)
-  union(e[0], e[1], parent, maxCount);
+  console.log("edge", e)
+  count += union(e[0], e[1], parent, maxCount)
 }
 return count;
-}
+};
 
 const vals = [1, 3, 2, 1, 3];
 const edges = [

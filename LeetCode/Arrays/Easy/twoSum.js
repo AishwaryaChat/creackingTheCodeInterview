@@ -68,3 +68,7 @@ var twoSum2 = function(nums, target) {
   }
   return res;
 }
+
+const nums = [1, 1,1,1]
+const target = 2
+console.log(twoSum2(nums, target))

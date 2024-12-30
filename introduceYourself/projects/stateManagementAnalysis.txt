@@ -1,0 +1,8 @@
+Challenges
+
+    Deepely nested objects as state variables
+        -> finding out where exactly the state is not updating properly
+        -> I needed to check each component individually
+        -> directly mutating the state without using React's setState function
+        -> external libraries dependance -> integration issues -> created a middleware service which took care of data massaging and provided only necessary fields, this way we didn't disturb and other projects using this library
+    -> 

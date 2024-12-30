@@ -1,0 +1,43 @@
+"Hi, I’m Aishwarya. 
+
+    -> I completed my engineering degree in Computer Science
+    -> and I am currently working as a Senior Software Engineer at Adobe. -> In my role, I focus on the Digital Media segment, where I am responsible for delivering frontend features from the design phase through to production, along with providing ongoing support. I also mentor interns and manage a team of four engineers, guiding them to successfully complete projects. I am also responsible for making our application performant and to keep a check on how we can make the application better
+
+    Tech I have worked on
+    -> I have worked extensively with technologies and frameworks such as ReactJS, NodeJS, GraphQL, Apollo, REST APIs, and state management libraries like React's context api Redux, React Query, and MobX.
+
+    In terms of domains:
+
+    -> Adobe: 
+        Admin Console
+            -> I’m currently working on a web application which helps businesses, educational and government institutions to buy Adobe products liscences in bulk through direct and indirect sources. The app is written in ReactJS, utilizing a 'Micro Frontend Architecture' with 'Package-based Modularization.'
+            -> We incorporate concepts like Mini apps, loading them in iframes as self-contained applications. We also use in-house npm packages for API handling.
+            -> Event bus for communication between different parts of our application
+            -> We are using React's context api and Mobx for handling global state of the application
+        State Management Analysis
+            -> I worked on a state management analysis task within this project, where I worked on why our application state is unstable
+            -> I used several tools to uderstand why the state is behaving unstable like mobx's developer tools and trace method to understand if the components are correctly using the mobx library, chrome's lighthouse tool to understand performance implication, and chrome's react dev tools extension to understand how state is changing for a component 
+
+    -> Walmart: 
+        -> I was a founding member of a team working on an internal inventory management application for Walmart’s store setup. This application was initially in Angular, and I played a key role in its migration to React. A notable task was developing a 2D map visualization of Walmart stores for inventory management using D3.js and Leaflet libraries.
+
+        -> Additionally, I contributed to a project that unified 9-10 applications within Walmart onto a single platform, which involved handling authentication across different apps and enabling communication between them using the PostMessage API.
+
+        -> I’ve also worked on retail domain projects with business.walmart.com."
+
+
+
+
+Hi I am Aishwarya.
+
+    -> I completed my engineering degree in Computer Science 
+    -> And I am currently working as a Senior Software Engineer at Adobe. -> In my role, I focus on the Digital Media segment, where I am responsible for delivering frontend features from the design phase through to production, and providing ongoing support. Additionally, I mentor interns and manage a team of four engineers, guiding them to successfully complete our projects using Agile methodologies.
+    I have worked on various technologies and frameworks which includes ReactJS, NodeJS, Graphql, Aollo, RestAPIs, and state management libraries like Redux, reactQuery, Mobx. 
+    -> I have worked in various domains which includes
+        -> My current project in Adobe, where I am working on a web application written in ReactJS, and we are using a "Micro Frontend Architecture" with "Package-based Modularization." We are using concepts like Mini apps where we load them in iframes, and these are small apps within itself. We have in-house npm packages which takes care of api calling and in-house npm packages for 
+        -> I have  worked on internal inventory management application in walmart which was required for Walmart store setup, this application was written in Angular and I was a founding member of this team and I helped them with the migration from Angular to React application.
+        -> In this project I worked on a very interesting task of showing a Walmart store on a 2D map as this was required for inventory management filtering and ordering. We used D3 JS and leaflet libraries to pull off this task.
+        -> While working on this project I parallelly worked on another project where we were bringing 9-10 apllications inside walmart to a single platform and those applications were written in various frontend frameworks. The application was responsible for handling authentication for all the apps onces and for communication between different application and we achieved this using postmessages API of the prowser.
+        -> retail domain at walmart with business.walmart.com
+
+    -> The product helps businesses, educational and government institutions to buy Adobe products liscences in bulk through direct and indirect sources.

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Infinite Scrolling</title>
+    <link rel="stylesheet" href="../style.css" />
+    <style>
+      #items-container {
+          height: 550px;
+          overflow-y: auto;
+          position: relative;
+          border: 1px solid #ccc;
+      }
+      .list-item {
+          height: 30px;
+          box-sizing: border-box;
+          border-bottom: 1px solid #eee;
+          position: absolute;
+          width: 100%;
+      }
+  </style>
+  </head>
+  <body>
+    <div id="app-container" class="flex-class">
+      <div id="items-container"></div>
+      <!-- <div id="output">scrollTop: 0</div> -->
+      <!-- <div id="output1">scrollHeight: 0</div> -->
+      <!-- <div id="output2">clientHeight: 0</div> -->
+      <!-- <div id="output3">scrollBarHeight: 0</div> -->
+      <!-- <div id="output4">offsetHeight: 0</div> -->
+    </div>
+    <!-- <script src="./virtualisedOptimised.js"></script> -->
+    <script src="./virtualised.js"></script>
+  </body>
+</html>

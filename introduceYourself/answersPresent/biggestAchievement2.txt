@@ -1,3 +1,12 @@
+Keywords:
+    -> Passion
+    -> Cross-functional teamwork
+    -> Collaboration
+    -> Innovation
+    -> Task estimation
+    -> First principle thinking
+    -> Design considerations
+
 Situation
     -> Existing application for products assignment was unstable
     -> unstable in terms of how a feature behaved differently in same kind of operation
@@ -15,6 +24,8 @@ Action
 
 
     -> I created a roadmap for this by dividing the task into four segments: development, unit testing, feature flag-based testing in the staging environment, and rollout to production.
+
+    -> I then did task estimation for each of the smaller tasks and set clear expectations for each of the tasks
     
     -> I also created tasks to monitor web vitals and performance metrics during development to ensure we didn't introduce new issues while fixing existing ones.
 
@@ -38,7 +49,7 @@ Results
 
 Learnings
     -> This was the first time I handled something this big on my home and it was a success and I learned a lot while executing this task
-    -> More than a task it was a code ramp up for our application where maintaining the current state of application was crucial, task estimation was a crucial thing here and with the help of my manager and architect I was able to give somewhat 
+    -> More than a task it was a code ramp up for our application where maintaining the current state of application was crucial, task estimation was a crucial thing here and with the help of my manager and architect I was able to give the right estimates 
     -> I conducted various knowledge sharing sessions while progrssing in this task
-    -> I also documented our learnings and made sure other team members who worked on this also document their learnings
+    -> I also documented our learnings and made sure other team members who worked on this also document their learnings for future references
     -> I created a checklist and best practices of state management, accessibility checklist and shared it across the teams

@@ -1,0 +1,12 @@
+Tech used
+    -> D3 JS
+    -> leaflet JS
+    -> d3-quadtree
+
+Challenges
+    -> Performance Optimization:
+
+        -> Challenge: Rendering complex store layouts with many data points (such as product locations) can be performance-intensive, especially when users zoom or pan the map.
+        -> Solution: Optimize rendering by using techniques like spatial indexing (e.g., quadtrees) to limit the number of objects rendered at a time. Consider using canvas layers for large numbers of objects.
+
+        -> Optimizing Performance with Canvas Layers - leaflet-canvas-layer'

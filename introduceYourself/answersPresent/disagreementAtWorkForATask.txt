@@ -10,11 +10,11 @@ Task:
     -> My task was to identify and implement a solution for the bug within the given timeframe, ensuring it would not negatively impact the application's performance.
 
 Action:
-    -> Identifying Solutions: I began by thoroughly investigating the bug and identifying two potential solutions. I documented each solution, detailing the necessary changes, along with the pros and cons of each.
+    -> Identifying Solutions: I began by thoroughly investigating the bug and identifying two potential solutions. I documented each solution, detailing the necessary changes, along with the pros and cons of each. and time estimations.
 
     -> Collaboration: I set up a meeting with our architect to present my findings. During the meeting, I laid out both solutions, emphasizing their respective advantages and drawbacks.
 
-    -> Disagreement: The architect was not in favor of either of my proposed solutions, as he found them too lengthy. He suggested an alternative that was simpler but not very performant. Understanding the urgency and the directive from higher authorities, I acknowledged his perspective but expressed my concern that his solution might not address the root cause of the bug.
+    -> Disagreement: The architect was not in favor of either of my proposed solutions, as he found them too lengthy. He suggested an alternative that was simpler but was not very performant. Understanding the urgency and the directive from higher authorities, I acknowledged his perspective but expressed my concern that his solution might not address the root cause of the bug.
 
     -> Negotiation: Despite the architect's firm stance, I calmly and respectfully suggested that while we implement his solution to meet the immediate deadline, I would also work on a more robust solution concurrently. After some discussion, we reached an agreement on this approach.
 

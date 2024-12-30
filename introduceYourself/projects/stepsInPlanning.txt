@@ -1,0 +1,15 @@
+-> Product requirement
+    -> timeline projection (discussion with team)
+-> dependencies
+-> identify problems
+-> API integrations required
+-> Code structure
+-> find common things that can be reused
+-> identify tech stack
+-> sprint design
+    -> find major bottle necks
+    -> identify long poles
+    -> divide tasks into stories, and estimate them
+    -> resource estimation
+    -> intermediate checkins, if any deliverables are slipping away
+    -> discussions with architects multiple solutions

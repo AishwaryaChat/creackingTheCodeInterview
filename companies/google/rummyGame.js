@@ -15,29 +15,21 @@
 function isPattern(tiles) {
   // Check for three identical tiles
   if (tiles.length < 3) return false;
-  if (
-    tiles[0][0] === tiles[1][0] &&
-    tiles[1][0] === tiles[2][0] &&
-    tiles[0][1] === tiles[1][1] &&
-    tiles[1][1] === tiles[2][1]
-  ) {
-    return true;
-  }
-
-  // Check for three consecutive tiles of the same color
   if (tiles[0][0] === tiles[1][0] && tiles[1][0] === tiles[2][0]) {
+    if (tiles[0][1] === tiles[1][1] && tiles[1][1] === tiles[2][1]) return true;
+    // Check for three consecutive tiles of the same color
     const digits = tiles.map((tile) => tile[1]).sort((a, b) => a - b);
     if (digits[0] + 1 === digits[1] && digits[1] + 1 === digits[2]) {
       return true;
     }
   }
-
   return false;
 }
 
 function backtrack(hands, patterns, visited, currentTiles) {
   // Base case: check if we have found 4 patterns
   if (patterns.length === 4) {
+    console.log(patterns);
     return true; // Solution found
   }
 
@@ -55,15 +47,14 @@ function backtrack(hands, patterns, visited, currentTiles) {
     if (currentTiles.length === 3) {
       if (isPattern(currentTiles)) {
         patterns.push(currentTiles);
-        currentTiles = []
+        currentTiles = [];
         // Recursive call to check the remaining tiles
         if (backtrack(hands, patterns, visited, currentTiles)) {
           return true; // Solution found
         }
         patterns.pop();
       }
-      if(currentTiles.length>0) visited[currentTiles.pop()[2]] = false;
-      
+      if (currentTiles.length > 0) visited[currentTiles.pop()[2]] = false;
 
       // Backtrack: remove the tile from the current patterns
     }
@@ -74,15 +65,14 @@ function backtrack(hands, patterns, visited, currentTiles) {
 
 function solve(hand) {
   // Check if a given set of tiles forms a pattern
-let patterns = []
+  let patterns = [];
   // Start the backtracking with the initial hand
   const ans = backtrack(hand, patterns, {}, []);
-  return ans
+  return ans;
 }
 
 const hands = [
   ["black", 1],
-  ["black", 2],
   ["black", 3],
   ["red", 5],
   ["red", 5],
@@ -93,6 +83,7 @@ const hands = [
   ["green", 7],
   ["green", 8],
   ["green", 9],
+  ["black", 2],
 ];
 
 console.log(solve(hands));

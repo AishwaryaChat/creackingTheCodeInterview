@@ -1,4 +1,17 @@
+
+Keywords:
+    -> Passion
+    -> Cross-functional teamwork
+    -> Collaboration
+    -> Innovation
+    -> Task estimation
+    -> First principle thinking
+    -> Design considerations
+
+
 Situation:
+    -> Product was an inventory management solution in walmart for physical store modelling. The existing solution was not productive and I got to know about this in a business meeting that I attended for our quarter results.
+    -> Remodelling is a time bounded process
     -> Existing solution for inventory management was not productive.
     -> The process was inefficient, particularly in terms of ordering inventory.
     -> The process was time-consuming, and we had tight timeline constraints.
@@ -8,17 +21,39 @@ Task:
     -> Work within the given design constraints.
 
 Action:
-    -> Thought of providing an out-of-the-box solution.
-    -> Got a hint from already existing data.
-    -> Provided a solution using a 3D library.
-    -> Worked parallelly on both the proposed solution and a proof of concept for my solution.
-    -> Collaborated with other team members to understand existing APIs.
+    -> I was aware of a system at walmart which was showing 2D layout of the stores, so I thought if we can reuse this
+    -> I connected with the that team's team members and understood the apis they were using and understood the api responses
+    -> I gathered all the information and I thought of providing an out of the box solution which will help the users and make the process faster. I suggested of providing an interactive 2D layout of the stores, where clicking on a block will filter the inventory items of that block
+    -> I then scheduled a call with my manager and our architect and jotted down all the points like the api's we will be using and features we can provide and also a POC for this and presented it in the meeting
+    -> After multiple discussions with design team and the architects I got the green signal to go ahead with the task
+    -> The next action item was to break down the task into smaller tasks, do estimations for each of these tasks and delegate it to the team members and 
+     -> I created a roadmap for this by dividing the task into four segments: development, unit testing, feature flag-based testing in the staging environment, and rollout to production.
+
     -> Showed passion and enthusiasm for the project.
     -> Engaged in cross-functional teamwork and collaboration.
     -> Found the task enjoyable and a great learning experience.
 
 Challenges:
+    -> D3 was a new tech altogether for the team, and this posed a challenge to our project timeline and overall quality
+    -> mitigation: 
+        1. I attended trainings, tutorials and workshops and educated the team by organising KT sessions
+        2. I reached out to colleagues in other teams who had experience with the technology, and arranged KT sessions with them
+        3. I also set up a sandbox environment where the team could experiment and practice with the new technology, and we did this once or twice in a week, we even use to pair program
+
+    -> the APIs we needed to use were designed for a legacy system and were not optimized for our architecture
+        1. I initiated the creation of a middleware or transformation layer that would sit between the legacy APIs and our application. This layer was responsible for cleaning, normalizing, and transforming the legacy data into a format that our system could efficiently process. This approach allowed us to decouple our system from the intricacies of the legacy APIs
+        2. Given the complexity of working with legacy data, I emphasized the importance of thorough testing. We created comprehensive test cases that covered various edge cases, ensuring that the transformed data met our application’s requirements. I also set up monitoring and alerting to detect any issues in the data transformation process early.
+        3.Understanding the potential instability of legacy systems, I implemented robust error handling and fallback mechanisms. This ensured that our system could gracefully handle failures from the legacy APIs without disrupting the user experience.
+
+    Results: 
+        -> Streamlined the inventory management process, making it more efficient and less time-consuming to order the inventory.
+        -> Significantly it improved time to order inventory for a single block and collectively for a store
+        -> We got praise from the business stake holders and the primary users of the tool
+        -> I have even been awarded for the next qurter spot award for this
+
+    Working on D3 js was new form the team, so educating them was challenging, and I educated myself and the team by taking knowledge sharing sessions.
     -> Collaboration with multiple teams, each with its own priorities and schedules.
+
     -> Ensuring seamless integration with existing systems.
 
 Results:
@@ -33,16 +68,6 @@ Learning:
     -> Highlighted the importance of task estimation.
     -> Emphasized the value of approaching new and innovative solutions.
     -> Understood the importance of design considerations in developing solutions.
-
-Keywords:
-    -> Passion
-    -> Cross-functional teamwork
-    -> Collaboration
-    -> Innovation
-    -> Task estimation
-    -> First principle thinking
-    -> Design considerations
-
 _________________________________________________________________
 
 Situation
